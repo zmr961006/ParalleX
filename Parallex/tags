@@ -1,0 +1,117 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ASM	Makefile	/^ASM = nasm$/;"	m
+ASM_FLAGS	Makefile	/^ASM_FLAGS = -f elf -g -F stabs  $/;"	m
+CC	Makefile	/^CC = gcc$/;"	m
+C_FLAGS	Makefile	/^C_FLAGS = -std=c99 -c -m32 -Wall -Wextra -ggdb -gstabs+ -ffreestanding \\$/;"	m
+C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
+C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
+FALSE	arch/i386/include/types.h	28;"	d
+FL_AC	arch/i386/include/common.h	32;"	d
+FL_AF	arch/i386/include/common.h	15;"	d
+FL_CF	arch/i386/include/common.h	13;"	d
+FL_DF	arch/i386/include/common.h	20;"	d
+FL_ID	arch/i386/include/common.h	36;"	d
+FL_IF	arch/i386/include/common.h	19;"	d
+FL_IOPL_0	arch/i386/include/common.h	24;"	d
+FL_IOPL_1	arch/i386/include/common.h	25;"	d
+FL_IOPL_2	arch/i386/include/common.h	26;"	d
+FL_IOPL_3	arch/i386/include/common.h	27;"	d
+FL_IOPL_MASK	arch/i386/include/common.h	23;"	d
+FL_NT	arch/i386/include/common.h	29;"	d
+FL_OF	arch/i386/include/common.h	21;"	d
+FL_PF	arch/i386/include/common.h	14;"	d
+FL_RF	arch/i386/include/common.h	30;"	d
+FL_SF	arch/i386/include/common.h	17;"	d
+FL_TF	arch/i386/include/common.h	18;"	d
+FL_VIF	arch/i386/include/common.h	34;"	d
+FL_VIP	arch/i386/include/common.h	35;"	d
+FL_VM	arch/i386/include/common.h	31;"	d
+FL_ZF	arch/i386/include/common.h	16;"	d
+LD	Makefile	/^LD = ld$/;"	m
+LD_FLAGS	Makefile	/^LD_FLAGS = -T arch\/i386\/scripts\/kernel.lds -nostdlib  -m elf_i386$/;"	m
+MBOOT_CHECKSUM	arch/i386/boot/init_s.s	/^MBOOT_CHECKSUM        equ  - (MBOOT_HEADER_MAGIC + MBOOT_HEADER_FLAGS )$/;"	d
+MBOOT_HEADER_FLAGS	arch/i386/boot/init_s.s	/^MBOOT_HEADER_FLAGS    equ  MBOOT_PAGE_ALIGN  | MBOOT_MEM_INFO$/;"	d
+MBOOT_HEADER_MAGIC	arch/i386/boot/init_s.s	/^MBOOT_HEADER_MAGIC    equ  0x1BADB002$/;"	d
+MBOOT_MEM_INFO	arch/i386/boot/init_s.s	/^MBOOT_MEM_INFO        equ  1 << 1$/;"	d
+MBOOT_PAGE_ALIGN	arch/i386/boot/init_s.s	/^MBOOT_PAGE_ALIGN    equ  1 << 0 $/;"	d
+NULL	arch/i386/include/types.h	23;"	d
+STACK_TOP	arch/i386/boot/init_s.s	/^STACK_TOP equ $-stack-1$/;"	d
+S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
+S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
+TRUE	arch/i386/include/types.h	27;"	d
+TYPES_H	arch/i386/include/types.h	20;"	d
+_COMMON_H	arch/i386/include/common.h	9;"	d
+_PRINTK_H	arch/i386/include/printk.h	9;"	d
+_SCREEN_OPERATE_H	arch/i386/include/screen_operate.h	9;"	d
+_STRING_H	arch/i386/include/string.h	9;"	d
+_VAGR_H	arch/i386/include/vagr.h	9;"	d
+__barrier__	arch/i386/include/common.h	39;"	d
+bzer	arch/i386/libs/string.c	/^void bzer(void *dest,uint32 len){$/;"	f
+color	arch/i386/include/screen_operate.h	/^}color;$/;"	t	typeref:enum:__anon1
+cpu_hlt	arch/i386/include/common.h	/^static inline void cpu_hlt(void){$/;"	f
+dd	arch/i386/boot/init_s.s	/^dd MBOOT_CHECKSUM $/;"	l
+dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_FLAGS $/;"	l
+dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_MAGIC $/;"	l
+disable_intr	arch/i386/include/common.h	/^static inline void disable_intr(void){$/;"	f
+enable_intr	arch/i386/include/common.h	/^static inline void enable_intr(void){$/;"	f
+inb	arch/i386/include/common.h	/^static inline uint8 inb(uint16 port){                           \/*read a byte*\/$/;"	f
+int16	arch/i386/include/types.h	/^typedef 	 short  int16;$/;"	t
+int32	arch/i386/include/types.h	/^typedef 	 int    int32;$/;"	t
+int8	arch/i386/include/types.h	/^typedef 	 char  	int8;$/;"	t
+inw	arch/i386/include/common.h	/^static inline uint16 inw(uint16 port){$/;"	f
+kern_entry	arch/i386/init/init.c	/^int kern_entry(){$/;"	f
+memcpy	arch/i386/libs/string.c	/^void *memcpy(void *dest,const void *src,uint32 len){$/;"	f
+memset	arch/i386/libs/string.c	/^void memset(void *dest,int8 val,uint32 len){$/;"	f
+move_point	arch/i386/libs/screen_operate.c	/^static void move_point(){$/;"	f	file:
+noreturn	arch/i386/boot/init_s.s	/^noreturn:$/;"	l
+outb	arch/i386/include/common.h	/^static inline void outb(uint16 port,uint8 value){               \/*write a byte*\/$/;"	f
+printchar	arch/i386/libs/printk.c	/^void printchar(int8 str){$/;"	f
+printi	arch/i386/libs/printk.c	/^void printi(int number){$/;"	f
+printk	arch/i386/libs/printk.c	/^int printk(const int8 * format,...){$/;"	f
+prints	arch/i386/libs/printk.c	/^void prints(char *s){  $/;"	f
+printx	arch/i386/libs/printk.c	/^void printx(int number){$/;"	f
+read_eflags	arch/i386/include/common.h	/^static inline uint32 read_eflags(void){$/;"	f
+screen_abscissa	arch/i386/libs/screen_operate.c	/^static int16 screen_abscissa = 0;$/;"	v	file:
+screen_black	arch/i386/include/screen_operate.h	/^    screen_black = 0x0,$/;"	e	enum:__anon1
+screen_blue	arch/i386/include/screen_operate.h	/^    screen_blue  = 0x1,$/;"	e	enum:__anon1
+screen_brown	arch/i386/include/screen_operate.h	/^    screen_brown = 0x6,$/;"	e	enum:__anon1
+screen_char	arch/i386/libs/screen_operate.c	/^void screen_char(char c,color back_color,color fore_color){$/;"	f
+screen_clear	arch/i386/libs/screen_operate.c	/^void screen_clear(){$/;"	f
+screen_cyan	arch/i386/include/screen_operate.h	/^    screen_cyan  = 0x3,$/;"	e	enum:__anon1
+screen_gray	arch/i386/include/screen_operate.h	/^    screen_gray  = 0x8,$/;"	e	enum:__anon1
+screen_green	arch/i386/include/screen_operate.h	/^    screen_green = 0x2,$/;"	e	enum:__anon1
+screen_lbrown	arch/i386/include/screen_operate.h	/^    screen_lbrown= 0x14,$/;"	e	enum:__anon1
+screen_lbule	arch/i386/include/screen_operate.h	/^    screen_lbule = 0x9,$/;"	e	enum:__anon1
+screen_lcyan	arch/i386/include/screen_operate.h	/^    screen_lcyan = 0x11,$/;"	e	enum:__anon1
+screen_lgreen	arch/i386/include/screen_operate.h	/^    screen_lgreen= 0x10,$/;"	e	enum:__anon1
+screen_lmngen	arch/i386/include/screen_operate.h	/^    screen_lmngen= 0x13,$/;"	e	enum:__anon1
+screen_lred	arch/i386/include/screen_operate.h	/^    screen_lred  = 0x12,$/;"	e	enum:__anon1
+screen_lwhite	arch/i386/include/screen_operate.h	/^    screen_lwhite= 0x15,$/;"	e	enum:__anon1
+screen_magen	arch/i386/include/screen_operate.h	/^    screen_magen = 0x5,$/;"	e	enum:__anon1
+screen_ordinate	arch/i386/libs/screen_operate.c	/^static int16 screen_ordinate = 0;$/;"	v	file:
+screen_point	arch/i386/libs/screen_operate.c	/^static int16 * screen_point = (int16 *)(0xb8000);$/;"	v	file:
+screen_red	arch/i386/include/screen_operate.h	/^    screen_red   = 0x4,$/;"	e	enum:__anon1
+screen_string	arch/i386/libs/screen_operate.c	/^void screen_string(int8 *string,color back_color,color fore_color){$/;"	f
+screen_white	arch/i386/include/screen_operate.h	/^    screen_white = 0x7,$/;"	e	enum:__anon1
+section	arch/i386/boot/init_s.s	/^section .data$/;"	l
+section	arch/i386/boot/init_s.s	/^section .text $/;"	l
+stack	arch/i386/boot/init_s.s	/^stack: times 1024 db 0$/;"	l
+start	arch/i386/boot/init_s.s	/^start:$/;"	l
+strcat	arch/i386/libs/string.c	/^int8 *strcat(int8 *dest,const int8 *val){$/;"	f
+strcmp	arch/i386/libs/string.c	/^int strcmp(const int8* dest,const int8 *val){$/;"	f
+strcpy	arch/i386/libs/string.c	/^int8 *strcpy(char *dest,const char *val){$/;"	f
+strlen	arch/i386/libs/string.c	/^int strlen(const int8 * src){$/;"	f
+uint16	arch/i386/include/types.h	/^typedef unsigned short  uint16;$/;"	t
+uint32	arch/i386/include/types.h	/^typedef unsigned int    uint32;$/;"	t
+uint8	arch/i386/include/types.h	/^typedef unsigned char 	uint8;$/;"	t
+va_arg	arch/i386/include/vagr.h	19;"	d
+va_end	arch/i386/include/vagr.h	22;"	d
+va_list	arch/i386/include/vagr.h	14;"	d
+va_start	arch/i386/include/vagr.h	16;"	d
+vprintk	arch/i386/libs/printk.c	/^int vprintk(const int8 * format,char *ap){$/;"	f
+write_eflags	arch/i386/include/common.h	/^static inline void write_eflags(uint32 eflags){$/;"	f
