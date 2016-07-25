@@ -40,7 +40,7 @@ link:
 
 .PHONY:clean
 clean:
-	$(RM) $(S_OBJECTS) $(C_OBJECTS) Parallex
+	$(RM) $(S_OBJECTS) $(C_OBJECTS) Parallex  Parallex.iso disk.img
 
 .PHONY:disk 
 disk:

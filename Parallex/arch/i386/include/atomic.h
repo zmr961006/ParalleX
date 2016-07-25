@@ -39,7 +39,7 @@ static inline void change_bit(int32 nr,volatile void *addr){
 
 }
 
-static inline bool test_bit(int32 nr,volatile void * addr){
+static inline uint32 test_bit(int32 nr,volatile void * addr){
     
         int32 oldbit;
         __asm__ __volatile__ ("btl %2,%1; sbbl %0,%0"
@@ -73,10 +73,55 @@ static inline void atomic_add(atomic_t *v,int32 i){
 static inline void atomic_sub(atomic_t *v,int32 i){
     
         __asm__ __volatile__ (LOCK_PREFIX "subl %1,%0"
-                              :"+"(v->counter))
+                              :"+m"(v->counter)
+                              :"ir"(i));
 
 }
 
+static inline int32 atomic_sub_and_test(atomic_t *v,int32 i){
+    
+        unsigned char c;
+        __asm__ __volatile__ (LOCK_PREFIX "subl %2,%0;sete %1"   /*sete  相等置位*/
+                              :"+m"(v->counter),"=qm"(c)
+                              :"ir"(i):"memory");
+        return c;
+
+}
+
+static inline void atomic_inc(atomic_t *v){
+    
+        __asm__ __volatile__ (LOCK_PREFIX "incl %0"
+                              :"+m"(v->counter));
+
+}
+
+static inline int32 atomic_inc_and_test(atomic_t *v){
+    
+        unsigned char c;
+
+        __asm__ __volatile__(LOCK_PREFIX "incl %0;sete %1"
+                             :"+m"(v->counter),"=qm"(c)     /*q 选择eax,ebx,ecx,edx 其中之一*/
+                             ::"memory");
+        return (c != 0);
+}
+
+static inline void atomic_dec(atomic_t *v){
+    
+        __asm__ __volatile__ (LOCK_PREFIX "decl %0"
+                              : "+m"(v->counter));
+
+}
+
+static inline int32 atomic_dec_and_test(atomic_t *v){
+    
+        unsigned char c;
+
+        __asm__ __volatile__ (LOCK_PREFIX "decl %0;sete %1"
+                              :"+m"(v->counter),"=qm"(c)
+                              ::"memory");
+        return (c != 0);
+    
+}
 
 
 #endif

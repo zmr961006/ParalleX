@@ -10,13 +10,15 @@
 #include "gdt.h"
 #include "intr.h"
 #include "clock.h"
+#include "pmm.h"
 
 int kern_entry(){
     printk("start!\n");
     gdt_init();
     idt_init();
+    pmm_init();
     printk("hello world!\n");
-    clock_init();
-    __asm__ __volatile__ ("sti");
+    //clock_init();
+    //__asm__ __volatile__ ("sti");
     return 0;
 }

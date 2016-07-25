@@ -7,6 +7,7 @@ SECTIONS {
 		*必须大于或等于1M，并且小于真实的物理地址RAM的大小。这是grub的限制，并不是
 		*多启动机制的限制
 		*/
+    PROVIDE(kernel_start = 0x10000 );
 	.text : {
 		*(.text) 
 		. = ALIGN(4096); 
@@ -33,5 +34,5 @@ SECTIONS {
 		*(.stabstr)
 		. = ALIGN(4096);
 	}
-
+    PROVIDE(kernel_end = .);
 }
