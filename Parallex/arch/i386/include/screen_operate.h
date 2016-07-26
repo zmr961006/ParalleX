@@ -8,6 +8,8 @@
 #ifndef _SCREEN_OPERATE_H
 #define _SCREEN_OPERATE_H
 
+#include"types.h"
+
 typedef enum {
     screen_black = 0x0,
     screen_blue  = 0x1,
@@ -34,5 +36,8 @@ void screen_string(char *string,color back_color,color fore_color);
 
 void screen_char(char c,color back_color,color fore_color);
 
+void screen_view_up(uint32 offset);
+
+void screen_view_down(uint32 offset);
 
 #endif

@@ -21,7 +21,7 @@
 #define PMM_PAGE_MASK (0xFFFFF000)
 
 /*kernel start of phy*/
-#define PMM_KERNEL_START (0x100000)
+#define RAM_KERNEL_START (0x100000)
 
 /*start and end of kernel*/
 extern uint32 kernel_start[];
@@ -86,7 +86,7 @@ typedef struct page_t {
 
 
 /*test page could use */
-#define is_page_reserved(page)         test_bit(PG_RESERVED,&((page)->flagh))
+#define is_page_reserved(page)         test_bit(PG_RESERVED,&((page)->flag))
 
 #define set_page_ncount_flag(page)     set_bit(PG_NCOUNT,&((page)->flag))
 

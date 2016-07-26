@@ -58,8 +58,8 @@ void screen_char(char c,color back_color,color fore_color){
     }
 
     if(screen_ordinate > 80){
-        screen_abscissa++;
-        screen_ordinate = 0;
+        screen_abscissa = 0;
+        screen_ordinate ++;
     }
 
     move_point();

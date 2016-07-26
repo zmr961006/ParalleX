@@ -40,3 +40,8 @@ void show_kernel_memory_map(void){
 
 
 }
+
+void painc(char *s){
+    printk("%s\n",s);
+}
+

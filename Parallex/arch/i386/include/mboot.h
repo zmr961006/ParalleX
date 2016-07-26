@@ -53,6 +53,8 @@ typedef struct mmap_entry_t{
 
 }__attribute__((packed)) mmap_entry_t; 
 
+#define MULTIBOOT_TYPE_RAM 1
+
 extern multiboot_t * mboot_ptr_tmp;
 
 extern multiboot_t * glb_mboot_ptr;

@@ -25,55 +25,16 @@ void *memcpy(void *dest,const void *src,uint32 len){
 
 void memset(void *dest,int8 val,uint32 len){
     
-    uint32 number;
-    uint32 i;
-    char *str = dest;
-    number = 0;
-    i = 0;
-
-    if(dest == NULL){
-        return;
+    for(uint8 *dst = (uint8*)dest;len != 0;len--){
+        *dst++ = val;
     }
-    while(*str != '\0'){
-        number++;
-    }
-    if(number <= len){
-        for(;i < len;i++){
-            *str++ = val;
-        }
-    }else{
-        for(i = 0;i < number;i++){
-            *str++ = val;
-        }
-    }
-
-    *str++ = '\0';
 
 }
 
 
 void bzer(void *dest,uint32 len){
     
-    uint32 number;
-    uint32 i;
-    char *d = dest;
-    number = 0;
-    i = 0;
-    if(dest == NULL){
-        return;
-    }
-    while(*d != '\0'){
-        number++;
-    }
-    if(number >= len){
-        for(;i < len;i++){
-            *d++ = '\0';
-        }
-    }else{
-        for(i = 0;i < number;i++){
-            *d++ = '\0';
-        }
-    }
+    memset(dest,0,len);
 
 }
 

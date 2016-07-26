@@ -8,7 +8,7 @@
 #ifndef _LIST_H
 #define _LIST_H
 
-#define "types.h"
+#include "types.h"
 
 #define list_entry(ptr,type,member) (type *)((char *)ptr - __offsetof(type,member))
 

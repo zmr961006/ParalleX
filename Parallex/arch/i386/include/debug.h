@@ -23,14 +23,12 @@ extern uint8 kern_data_end[];
 #define  assert(x,message)          \
         do{                         \
            if(!(x)){                \
-                painc(messgae)      \
+                painc(message);      \
            }                        \
         }while(0)                   \
 
 
-void painc(char *s){
-    printk("%s\n");
-}
+void painc(char *s);
 
 void show_memory_map(void);       /*print BIOS memory */
 
