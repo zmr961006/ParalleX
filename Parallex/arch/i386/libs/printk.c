@@ -25,7 +25,7 @@ void printx(int number){
     int i = 7;
     while(i >= 0){
         value = number >> i*4;
-        screen_char(hex[value & 0xF],screen_black,screen_red);
+        screen_string_color(hex[value & 0xF],screen_black,screen_red);
         i--;
     }
 
@@ -34,14 +34,14 @@ void printx(int number){
 
 void prints(char *s){  
     
-    screen_string(s , screen_black, screen_red);
+    screen_write_color(s , screen_black, screen_red);
     
 }
 
 
 void printchar(int8 str){
     
-    screen_char(str,screen_black,screen_red);
+    screen_string_color(str,screen_black,screen_red);
 }
 
 
@@ -64,7 +64,7 @@ void printi(int number){
     }
     i = i - 1;
     for(; i >= 0;i--){
-        screen_char(s[i],screen_black,screen_red);
+        screen_string_color(s[i],screen_black,screen_red);
     }
 
 }

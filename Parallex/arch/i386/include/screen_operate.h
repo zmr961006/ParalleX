@@ -29,15 +29,21 @@ typedef enum {
     screen_lwhite= 0x15,
 }color;
 
-
+/*清屏操作*/
 void screen_clear();
 
-void screen_string(char *string,color back_color,color fore_color);
+/*默认黑白色*/
+void screen_string(char *string);
 
-void screen_char(char c,color back_color,color fore_color);
+/*带某种颜色的打印*/
+void screen_string_color(char c,color back,color fore);
 
-void screen_view_up(uint32 offset);
+void screen_write_color(char *string,color back,color force);
 
-void screen_view_down(uint32 offset);
+/*向上移动N行*/
+//void screen_view_up(uint16 offset);
+
+/*向下移动N行*/
+//void screen_view_down(uint16 offset);
 
 #endif

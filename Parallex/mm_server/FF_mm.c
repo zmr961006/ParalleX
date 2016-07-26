@@ -186,29 +186,29 @@ static void ff_show_management_info(void)
 
 static void ff_test_mm(void)
 {
-        printk("\n%s Test Now:\n\n", ff_mm_manager.name);
+        //printk("\n%s Test Now:\n\n", ff_mm_manager.name);
 
         uint32 page1 = ff_alloc_pages(1);
-        printk("Alloc Page 1 In: %08X\n", page1);
+        printk("\nAlloc Page 1 In: %x\n\n", page1);
         ff_show_management_info();
 
         uint32 page2 = ff_alloc_pages(2);
-        printk("Alloc Page 2 In: %08X\n", page2);
+        printk("Alloc Page 2 In: %x\n", page2);
         ff_show_management_info();
 
-        printk("Free Page 1 In: %08X\n", page1);
+        printk("Free Page 1 In: %x\n", page1);
         ff_free_pages(page1, 1);
         ff_show_management_info();
 
-        printk("Free Page 2 In: %08X\n", page2);
+        printk("Free Page 2 In: %x\n", page2);
         ff_free_pages(page2, 2);
         ff_show_management_info();
 
         uint32 page3 = ff_alloc_pages(10);
-        printk("Alloc Page 10 In: %08X\n", page3);
+        printk("Alloc Page 10 In: %x\n", page3);
         ff_show_management_info();
 
-        printk("Free Page 10 In: %08X\n", page3);
+        printk("Free Page 10 In: %x\n", page3);
         ff_free_pages(page3, 10);
         ff_show_management_info();
 }
