@@ -14,7 +14,7 @@ MBOOT_CHECKSUM        equ  - (MBOOT_HEADER_MAGIC + MBOOT_HEADER_FLAGS )
 
 [bits 32]
 
-section .text 
+section .init.text 
 
 dd MBOOT_HEADER_MAGIC 
 dd MBOOT_HEADER_FLAGS 
@@ -40,7 +40,7 @@ noreturn:
     hlt
     jmp noreturn
 
-section .data
+section .init.data
 
 stack: times 1024 db 0
 

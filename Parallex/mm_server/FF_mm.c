@@ -44,9 +44,9 @@ struct ff_mm_struct {
 
 static struct ff_mm_struct ff_mm_info;
 
-static void ff_show_memory_info(void);
-static void ff_show_management_info(void);
-static void ff_test_mm(void) ;
+static void ff_show_memory_info(void)  __attribute__((unused));
+static void ff_show_management_info(void)  __attribute__ ((unused));  
+static void ff_test_mm(void) __attribute__((unused));
 
 static void ff_page_init(page_t *pages, uint32 n)
 {
@@ -65,8 +65,8 @@ static void ff_page_init(page_t *pages, uint32 n)
         pages[0].ncount = n;
         set_page_ncount_flag(&pages[0]);
         
-        ff_show_memory_info();
-        ff_test_mm();
+        //ff_show_memory_info();
+        //ff_test_mm();
 }
 
 static uint32 ff_alloc_pages(uint32 n)

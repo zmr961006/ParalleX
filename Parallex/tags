@@ -137,9 +137,13 @@ ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 5$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 6$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 7$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 9$/;"	l
+KERNBASE	arch/i386/include/vmm.h	22;"	d
 KERNBASE	arch/i386/mm/pmm.c	21;"	d	file:
 KERNEL_CS	arch/i386/include/gdt.h	31;"	d
 KERNEL_DS	arch/i386/include/gdt.h	32;"	d
+KERNTOP	arch/i386/include/vmm.h	31;"	d
+KMEMSIZE	arch/i386/include/vmm.h	25;"	d
+KVPAGE_SIZE	arch/i386/include/vmm.h	28;"	d
 KVPAGE_SIZE	arch/i386/mm/pmm.c	22;"	d	file:
 LD	Makefile	/^LD = ld$/;"	m
 LD_FLAGS	Makefile	/^LD_FLAGS = -T arch\/i386\/scripts\/kernel.lds -nostdlib  -m elf_i386$/;"	m
@@ -154,11 +158,24 @@ MBOOT_MEM_INFO	arch/i386/boot/init_s.s	/^MBOOT_MEM_INFO        equ  1 << 1$/;"	d
 MBOOT_PAGE_ALIGN	arch/i386/boot/init_s.s	/^MBOOT_PAGE_ALIGN    equ  1 << 0 $/;"	d
 MULTIBOOT_TYPE_RAM	arch/i386/include/mboot.h	56;"	d
 NULL	arch/i386/include/types.h	15;"	d
+OFFSET_INDEX	arch/i386/include/vmm.h	49;"	d
+PAGE_MAP_SIZE	arch/i386/include/vmm.h	37;"	d
+PAGE_MASK	arch/i386/include/vmm.h	19;"	d
+PAGE_OFFSET	arch/i386/include/vmm.h	34;"	d
+PAGE_PRESENT	arch/i386/include/vmm.h	52;"	d
+PAGE_SIZE	arch/i386/include/vmm.h	16;"	d
+PAGE_USER	arch/i386/include/vmm.h	58;"	d
+PAGE_WRITE	arch/i386/include/vmm.h	55;"	d
+PGD_INDEX	arch/i386/include/vmm.h	43;"	d
+PGD_SIZE	arch/i386/include/vmm.h	61;"	d
 PG_NCOUNT	arch/i386/include/pmm.h	78;"	d
 PG_ORDER	arch/i386/include/pmm.h	79;"	d
 PG_RESERVED	arch/i386/include/pmm.h	77;"	d
 PMM_PAGE_MASK	arch/i386/include/pmm.h	21;"	d
 PMM_PAGE_SIZE	arch/i386/include/pmm.h	18;"	d
+PTE_COUNT	arch/i386/include/vmm.h	40;"	d
+PTE_INDEX	arch/i386/include/vmm.h	46;"	d
+PTE_SIZE	arch/i386/include/vmm.h	64;"	d
 RAM_KERNEL_START	arch/i386/include/pmm.h	24;"	d
 SEG_KDATA	arch/i386/include/gdt.h	17;"	d
 SEG_KTEXT	arch/i386/include/gdt.h	16;"	d
@@ -180,6 +197,9 @@ TRUE	arch/i386/include/types.h	19;"	d
 TYPES_H	arch/i386/include/types.h	12;"	d
 USER_CS	arch/i386/include/gdt.h	33;"	d
 USER_DS	arch/i386/include/gdt.h	34;"	d
+VM_READ	arch/i386/include/vmm.h	66;"	d
+VM_WRITE	arch/i386/include/vmm.h	67;"	d
+VN_EXEC	arch/i386/include/vmm.h	68;"	d
 ZONE_DMA	arch/i386/include/pmm.h	/^        ZONE_DMA = 0,$/;"	e	enum:mem_zone_t
 ZONE_HIGHMEM	arch/i386/include/pmm.h	/^        ZONE_HIGHMEM = 2$/;"	e	enum:mem_zone_t
 ZONE_HIGHMEM_ADDR	arch/i386/include/pmm.h	63;"	d
@@ -192,6 +212,7 @@ _COMMON_H	arch/i386/include/common.h	9;"	d
 _DEBUG_H	arch/i386/include/debug.h	9;"	d
 _FF_MM_H	include/FF_mm.h	9;"	d
 _GDT_H	arch/i386/include/gdt.h	9;"	d
+_INIT_H	arch/i386/include/init.h	9;"	d
 _INTR_H	arch/i386/include/intr.h	9;"	d
 _LIST_H	include/list.h	9;"	d
 _MBOOT_H	arch/i386/include/mboot.h	9;"	d
@@ -203,6 +224,7 @@ _SLOB_H	include/slob.h	9;"	d
 _STRING_H	arch/i386/include/string.h	9;"	d
 _SYNC_H	include/sync.h	9;"	d
 _VAGR_H	arch/i386/include/vagr.h	9;"	d
+_VMM_H	arch/i386/include/vmm.h	9;"	d
 __barrier__	arch/i386/include/common.h	39;"	d
 __intr_restore	include/sync.h	/^static inline void __intr_restore(uint32 flag)$/;"	f
 __intr_store	include/sync.h	/^static inline uint32 __intr_store(void){$/;"	f
@@ -275,6 +297,7 @@ dd	arch/i386/boot/init_s.s	/^dd MBOOT_CHECKSUM $/;"	l
 dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_FLAGS $/;"	l
 dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_MAGIC $/;"	l
 disable_intr	arch/i386/include/common.h	/^static inline void disable_intr(void){$/;"	f
+do_page_fault	arch/i386/mm/fault.c	/^void do_page_fault(pt_regs_t *regs){$/;"	f
 drives_addr	arch/i386/include/mboot.h	/^        uint32 drives_addr;$/;"	m	struct:multiboot_t
 drives_length	arch/i386/include/mboot.h	/^        uint32 drives_length;$/;"	m	struct:multiboot_t
 ds	arch/i386/include/intr.h	/^        uint16  ds;         \/*保护用户的数据段描述符*\/$/;"	m	struct:pt_regs_t
@@ -289,6 +312,7 @@ edx	arch/i386/include/intr.h	/^        uint32  edx;$/;"	m	struct:pt_regs_t
 eflags	arch/i386/include/intr.h	/^        uint32  eflags;$/;"	m	struct:pt_regs_t
 eip	arch/i386/include/intr.h	/^        uint32  eip;        \/*CPU自动压栈*\/ $/;"	m	struct:pt_regs_t
 enable_intr	arch/i386/include/common.h	/^static inline void enable_intr(void){$/;"	f
+enable_paging	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void enable_paging(void){$/;"	f
 err_code	arch/i386/include/intr.h	/^        uint32  err_code;   \/*错误代码，有中断错误代码中断会由CPU自行压栈*\/$/;"	m	struct:pt_regs_t
 esi	arch/i386/include/intr.h	/^        uint32  esi;$/;"	m	struct:pt_regs_t
 esp	arch/i386/include/intr.h	/^        uint32  esp;        \/*特权级切换CPU压栈*\/$/;"	m	struct:pt_regs_t
@@ -323,8 +347,10 @@ gdt_ptr	arch/i386/mm/gdt.c	/^gdt_ptr_t gdt_ptr;$/;"	v
 gdt_ptr_t	arch/i386/include/gdt.h	/^typedef struct gdt_ptr_t {$/;"	s
 gdt_ptr_t	arch/i386/include/gdt.h	/^}__attribute__((packed)) gdt_ptr_t;$/;"	t	typeref:struct:gdt_ptr_t
 gdt_set_gate	arch/i386/mm/gdt.c	/^static void gdt_set_gate(uint32 num,uint32 base,uint32 limit,uint8 access,uint8 gran){$/;"	f	file:
+get_mapping	arch/i386/mm/vmm.c	/^uint32 get_mapping(pgd_t *pgd_now,uint32 va,uint32 *pa){$/;"	f
 get_order	mm_server/buddy_mm.c	/^static uint32 get_order(uint32 size)$/;"	f	file:
 get_ram_info	arch/i386/mm/pmm.c	/^static void get_ram_info(e820map_t *e820map)$/;"	f	file:
+glob_mboot_ptr	arch/i386/init/init.c	/^multiboot_t * glob_mboot_ptr;$/;"	v
 granularity	arch/i386/include/gdt.h	/^        uint8  granularity;     \/*其它标志，段界限 19～16*\/$/;"	m	struct:gdt_entry_t
 idt_entries	arch/i386/intr/intr.c	/^idt_entry_t idt_entries[INTERRUPT_MAX] __attribute__ ((aligned(16)));$/;"	v
 idt_entry_t	arch/i386/include/intr.h	/^typedef struct idt_entry_t{$/;"	s
@@ -356,7 +382,10 @@ isr_common_stub	arch/i386/intr/intr_s.s	/^isr_common_stub:$/;"	l
 isr_handler	arch/i386/intr/intr.c	/^void isr_handler(pt_regs_t *regs){$/;"	f
 isr_irq_func	arch/i386/intr/intr.c	/^isr_irq_func_t isr_irq_func[INTERRUPT_MAX] = {$/;"	v
 isr_irq_func_t	arch/i386/intr/intr.c	/^typedef void (*isr_irq_func_t)();$/;"	t	file:
-kern_entry	arch/i386/init/init.c	/^int kern_entry(){$/;"	f
+kern_entry	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void kern_entry(void){$/;"	f
+kern_init	arch/i386/init/init.c	/^int kern_init(){$/;"	f
+kernel_satck_top	arch/i386/init/init.c	/^uint32 kernel_satck_top = (uint32)kernel_stack + STACK_SIZE;$/;"	v
+kernel_stack	arch/i386/init/init.c	/^uint8 kernel_stack[STACK_SIZE]  __attribute__((aligned(STACK_SIZE)));$/;"	v
 le_to_page	mm_server/FF_mm.c	19;"	d	file:
 le_to_page	mm_server/buddy_mm.c	17;"	d	file:
 length_high	arch/i386/include/mboot.h	/^        uint32 length_high;$/;"	m	struct:mmap_entry_t
@@ -396,9 +425,11 @@ list_splice	include/list.h	/^static inline void list_splice(const struct list_he
 list_splice_init	include/list.h	/^static inline void list_splice_init(struct list_head *list,$/;"	f
 list_splice_tail	include/list.h	/^static inline void list_splice_tail(struct list_head *list,$/;"	f
 list_splice_tail_init	include/list.h	/^static inline void list_splice_tail_init(struct list_head *list,$/;"	f
+load_esp	arch/i386/include/common.h	/^static inline void load_esp(uint32 esp){$/;"	f
 local_intr_restore	include/sync.h	33;"	d
 local_intr_store	include/sync.h	32;"	d
 map	arch/i386/include/pmm.h	/^        }__attribute__((packed)) map[E820MAX];$/;"	m	struct:e820map_t	typeref:struct:e820map_t::__anon3
+map	arch/i386/mm/vmm.c	/^void map(pgd_t * pgd_now,uint32 va,uint32 pa,uint32 flags){$/;"	f
 mem_lower	arch/i386/include/mboot.h	/^        uint32 mem_lower;$/;"	m	struct:multiboot_t
 mem_upper	arch/i386/include/mboot.h	/^        uint32 mem_upper;$/;"	m	struct:multiboot_t
 mem_zone_t	arch/i386/include/pmm.h	/^typedef enum mem_zone_t {  $/;"	g
@@ -414,9 +445,10 @@ mmap_addr	arch/i386/include/mboot.h	/^        uint32 mmap_addr;$/;"	m	struct:mul
 mmap_entry_t	arch/i386/include/mboot.h	/^typedef struct mmap_entry_t{$/;"	s
 mmap_entry_t	arch/i386/include/mboot.h	/^}__attribute__((packed)) mmap_entry_t; $/;"	t	typeref:struct:mmap_entry_t
 mmap_length	arch/i386/include/mboot.h	/^        uint32 mmap_length;$/;"	m	struct:multiboot_t
+mmap_tmp_page	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void mmap_tmp_page(void){$/;"	f
 mods_addr	arch/i386/include/mboot.h	/^        uint32 mods_addr;$/;"	m	struct:multiboot_t
 mods_count	arch/i386/include/mboot.h	/^        uint32 mods_count;$/;"	m	struct:multiboot_t
-move_point	arch/i386/libs/screen_operate.c	/^static void move_point(){$/;"	f	file:
+move_point	arch/i386/libs/screen_operate.c	/^static void move_point()$/;"	f	file:
 multiboot_t	arch/i386/include/mboot.h	/^typedef struct multiboot_t {$/;"	s
 multiboot_t	arch/i386/include/mboot.h	/^}__attribute__((packed)) multiboot_t ;$/;"	t	typeref:struct:multiboot_t
 name	arch/i386/include/pmm.h	/^        const char *name;              \/*管理算法*\/$/;"	m	struct:pmm_manager
@@ -428,7 +460,9 @@ nr_free	mm_server/buddy_mm.c	53;"	d	file:
 num	arch/i386/include/mboot.h	/^        uint32 num;$/;"	m	struct:multiboot_t
 oesp	arch/i386/include/intr.h	/^        uint32  oesp;$/;"	m	struct:pt_regs_t
 order	arch/i386/include/pmm.h	/^            uint32 order ;$/;"	m	union:page_t::__anon4
+out_of_page	arch/i386/init/init.c	/^int out_of_page(){$/;"	f
 outb	arch/i386/include/common.h	/^static inline void outb(uint16 port,uint8 value){               \/*write a byte*\/$/;"	f
+pa_to_ka	arch/i386/include/vmm.h	/^static inline void *pa_to_ka(void *pa){   $/;"	f
 padding1	arch/i386/include/intr.h	/^        uint16  padding1;$/;"	m	struct:pt_regs_t
 padding2	arch/i386/include/intr.h	/^        uint16  padding2;$/;"	m	struct:pt_regs_t
 padding3	arch/i386/include/intr.h	/^        uint16  padding3;$/;"	m	struct:pt_regs_t
@@ -444,7 +478,9 @@ page_to_addr	arch/i386/mm/pmm.c	/^uint32 page_to_addr(page_t *page)$/;"	f
 page_to_idx	mm_server/buddy_mm.c	/^static inline uint32 page_to_idx(page_t *page)$/;"	f	file:
 pages_base	mm_server/buddy_mm.c	/^        page_t *pages_base;                             \/\/ 物理页管理结构起始地址$/;"	m	struct:buddy_mm_struct	file:
 painc	arch/i386/libs/debug.c	/^void painc(char *s){$/;"	f
+pgd_kernel	arch/i386/mm/vmm.c	/^pgd_t pgd_kernel[PGD_SIZE] __attribute__ ((aligned(PAGE_SIZE)));$/;"	v
 pgd_t	arch/i386/include/types.h	/^typedef uint32 pgd_t;$/;"	t
+pgd_tmp	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pgd_t *pgd_tmp = (pgd_t  *)0x1000;$/;"	v
 phy_page_count	mm_server/FF_mm.c	/^        atomic_t phy_page_count;       \/\/ 物理内存页的总数量$/;"	m	struct:ff_mm_struct	file:
 phy_page_count	mm_server/buddy_mm.c	/^        atomic_t phy_page_count;                        \/\/ 物理内存页的总数量$/;"	m	struct:buddy_mm_struct	file:
 phy_page_now_count	mm_server/FF_mm.c	/^        atomic_t phy_page_now_count;   \/\/ 物理内存页的当前数量$/;"	m	struct:ff_mm_struct	file:
@@ -466,6 +502,9 @@ prints	arch/i386/libs/printk.c	/^void prints(char *s){  $/;"	f
 printx	arch/i386/libs/printk.c	/^void printx(int number){$/;"	f
 pt_regs_t	arch/i386/include/intr.h	/^typedef struct pt_regs_t {$/;"	s
 pt_regs_t	arch/i386/include/intr.h	/^}pt_regs_t;$/;"	t	typeref:struct:pt_regs_t
+pte_addr	arch/i386/mm/vmm.c	/^static pte_t *pte_addr = (pte_t *)((uint32)kernel_end + KERNBASE);$/;"	v	file:
+pte_high	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pte_t *pte_high = (pte_t *)0x3000;$/;"	v
+pte_low	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pte_t *pte_low = (pte_t  *)0x2000;$/;"	v
 pte_t	arch/i386/include/types.h	/^typedef int32  pte_t;$/;"	t
 read_eflags	arch/i386/include/common.h	/^static inline uint32 read_eflags(void){$/;"	f
 ref	arch/i386/include/pmm.h	/^        atomic_t ref;             \/*引用次数*\/$/;"	m	struct:page_t
@@ -474,8 +513,7 @@ screen_abscissa	arch/i386/libs/screen_operate.c	/^static int16 screen_abscissa =
 screen_black	arch/i386/include/screen_operate.h	/^    screen_black = 0x0,$/;"	e	enum:__anon2
 screen_blue	arch/i386/include/screen_operate.h	/^    screen_blue  = 0x1,$/;"	e	enum:__anon2
 screen_brown	arch/i386/include/screen_operate.h	/^    screen_brown = 0x6,$/;"	e	enum:__anon2
-screen_char	arch/i386/libs/screen_operate.c	/^void screen_char(char c,color back_color,color fore_color){$/;"	f
-screen_clear	arch/i386/libs/screen_operate.c	/^void screen_clear(){$/;"	f
+screen_clear	arch/i386/libs/screen_operate.c	/^void screen_clear()$/;"	f
 screen_cyan	arch/i386/include/screen_operate.h	/^    screen_cyan  = 0x3,$/;"	e	enum:__anon2
 screen_gray	arch/i386/include/screen_operate.h	/^    screen_gray  = 0x8,$/;"	e	enum:__anon2
 screen_green	arch/i386/include/screen_operate.h	/^    screen_green = 0x2,$/;"	e	enum:__anon2
@@ -488,12 +526,14 @@ screen_lred	arch/i386/include/screen_operate.h	/^    screen_lred  = 0x12,$/;"	e	
 screen_lwhite	arch/i386/include/screen_operate.h	/^    screen_lwhite= 0x15,$/;"	e	enum:__anon2
 screen_magen	arch/i386/include/screen_operate.h	/^    screen_magen = 0x5,$/;"	e	enum:__anon2
 screen_ordinate	arch/i386/libs/screen_operate.c	/^static int16 screen_ordinate = 0;$/;"	v	file:
-screen_point	arch/i386/libs/screen_operate.c	/^static int16 * screen_point = (int16 *)(0xb8000);$/;"	v	file:
+screen_point	arch/i386/libs/screen_operate.c	/^static  int16 * screen_point = (int16 *)(0xB8000 + PAGE_OFFSET) ; $/;"	v	file:
 screen_red	arch/i386/include/screen_operate.h	/^    screen_red   = 0x4,$/;"	e	enum:__anon2
-screen_string	arch/i386/libs/screen_operate.c	/^void screen_string(int8 *string,color back_color,color fore_color){$/;"	f
+screen_string_color	arch/i386/libs/screen_operate.c	/^ void screen_string_color(char c, color back_color, color fore_color )$/;"	f
 screen_white	arch/i386/include/screen_operate.h	/^    screen_white = 0x7,$/;"	e	enum:__anon2
-section	arch/i386/boot/init_s.s	/^section .data$/;"	l
-section	arch/i386/boot/init_s.s	/^section .text $/;"	l
+screen_write_color	arch/i386/libs/screen_operate.c	/^void screen_write_color(int8 *string, color back_color, color fore_color)$/;"	f
+scrooll	arch/i386/libs/screen_operate.c	/^static void scrooll(void)$/;"	f	file:
+section	arch/i386/boot/init_s.s	/^section .init.data$/;"	l
+section	arch/i386/boot/init_s.s	/^section .init.text $/;"	l
 sel	arch/i386/include/intr.h	/^        uint16 sel ;$/;"	m	struct:idt_entry_t
 set_bit	arch/i386/include/atomic.h	/^static inline void set_bit(int32 nr,volatile void *addr){$/;"	f
 set_page_ncount_flag	arch/i386/include/pmm.h	91;"	d
@@ -512,14 +552,17 @@ strcat	arch/i386/libs/string.c	/^int8 *strcat(int8 *dest,const int8 *val){$/;"	f
 strcmp	arch/i386/libs/string.c	/^int strcmp(const int8* dest,const int8 *val){$/;"	f
 strcpy	arch/i386/libs/string.c	/^int8 *strcpy(char *dest,const char *val){$/;"	f
 strlen	arch/i386/libs/string.c	/^int strlen(const int8 * src){$/;"	f
+switch_pgd	arch/i386/include/common.h	/^static inline void switch_pgd(uint32 pd){$/;"	f
 test_bit	arch/i386/include/atomic.h	/^static inline uint32 test_bit(int32 nr,volatile void * addr){$/;"	f
 time_t	arch/i386/include/types.h	/^typedef uint32 time_t;$/;"	t
+tlb_reload_page	arch/i386/include/common.h	/^static inline void tlb_reload_page(uint32 va){$/;"	f
 type	arch/i386/include/mboot.h	/^        uint32 type;$/;"	m	struct:mmap_entry_t
 type	arch/i386/include/pmm.h	/^            uint32 type;$/;"	m	struct:e820map_t::__anon3
 uint16	arch/i386/include/types.h	/^typedef unsigned short  uint16;$/;"	t
 uint32	arch/i386/include/types.h	/^typedef unsigned int    uint32;$/;"	t
 uint64	arch/i386/include/types.h	/^typedef unsigned long long uint64;$/;"	t
 uint8	arch/i386/include/types.h	/^typedef unsigned char 	uint8;$/;"	t
+unmap	arch/i386/mm/vmm.c	/^void unmap(pgd_t *pgd_now,uint32 va){$/;"	f
 va_arg	arch/i386/include/vagr.h	19;"	d
 va_end	arch/i386/include/vagr.h	22;"	d
 va_list	arch/i386/include/vagr.h	14;"	d
@@ -530,5 +573,6 @@ vbe_interface_off	arch/i386/include/mboot.h	/^        uint32 vbe_interface_off;$
 vbe_interface_seg	arch/i386/include/mboot.h	/^        uint32 vbe_interface_seg;$/;"	m	struct:multiboot_t
 vbe_mode	arch/i386/include/mboot.h	/^        uint32 vbe_mode;$/;"	m	struct:multiboot_t
 vbe_mode_info	arch/i386/include/mboot.h	/^        uint32 vbe_mode_info;$/;"	m	struct:multiboot_t
+vmm_init	arch/i386/mm/vmm.c	/^void vmm_init(void){$/;"	f
 vprintk	arch/i386/libs/printk.c	/^int vprintk(const int8 * format,char *ap){$/;"	f
 write_eflags	arch/i386/include/common.h	/^static inline void write_eflags(uint32 eflags){$/;"	f

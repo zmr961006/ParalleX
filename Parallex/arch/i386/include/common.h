@@ -94,4 +94,20 @@ static inline void write_eflags(uint32 eflags){
 
 }
 
+static inline void switch_pgd(uint32 pd){
+    
+    __asm__ __volatile__ ("mov %0,%%cr3"::"r"(pd));
+
+}
+
+static inline void tlb_reload_page(uint32 va){
+    
+    __asm__ __volatile__ ("invlpg (%0)"::"a"(va));
+}
+
+static inline void load_esp(uint32 esp){
+    
+    __asm__ __volatile__("mov %0,%%esp"::"r"(esp));
+}
+
 #endif

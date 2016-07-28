@@ -10,10 +10,10 @@
 #include "sync.h"
 #include "debug.h"
 #include "vagr.h"
-
+#include "vmm.h"
 /*open page add page_offset*/
 
-static  int16 * screen_point = (int16 *)0xb8000;
+static  int16 * screen_point = (int16 *)(0xB8000 + PAGE_OFFSET) ; 
 
 
 static int16 screen_abscissa = 0;
