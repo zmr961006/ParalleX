@@ -24,7 +24,7 @@ void do_page_fault(pt_regs_t *regs){
         printk("the page is not in mem\n");
     }
 
-    if(!(regs->err_code & 0x2)){
+    if((regs->err_code & 0x2)){
         printk("write error\n");
     }else{
         printk("read error\n");
@@ -43,9 +43,7 @@ void do_page_fault(pt_regs_t *regs){
         printk("the fault occured during an instruction fetch\n");
     }
 
-    while(1){
-        cpu_hlt();
-    }
+    __asm__ __volatile__ ("hlt");
 
 }
 

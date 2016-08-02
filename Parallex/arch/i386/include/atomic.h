@@ -9,6 +9,8 @@
 #define _ATOMIC_H
 
 #include "types.h"
+#include "vagr.h"
+#include "debug.h"
 
 #define LOCK_PREFIX "lock;"
 
@@ -42,11 +44,16 @@ static inline void change_bit(int32 nr,volatile void *addr){
 static inline uint32 test_bit(int32 nr,volatile void * addr){
     
         int32 oldbit;
+        printk("test = %x\n",addr);
         __asm__ __volatile__ ("btl %2,%1; sbbl %0,%0"
                               :"=r"(oldbit)
                               :"m"(*(volatile long *)addr),"Ir"(nr));
 
-        return (oldbit != 0);
+        if(oldbit != 0){
+            return 1;
+        }else{
+            return 0;
+        }
 
 }
 

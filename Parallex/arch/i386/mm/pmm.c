@@ -15,12 +15,11 @@
 #include "mboot.h"
 #include "string.h"
 #include "sync.h"
-
+#include "vmm.h"
 /*物理起始与结束地址*/
 
-#define KERNBASE (0x1000)        /*虚拟地址空间暂存页表，这里临时定义*/
-#define KVPAGE_SIZE  KERNBASE 
-
+//#define KERNBASE (0x1000)        /*虚拟地址空间暂存页表，这里临时定义*/
+//#define KVPAGE_SIZE  KERNBASE
 // 物理内存管理算法
 static const struct pmm_manager *pmm_manager = &ff_mm_manager;
 
@@ -44,9 +43,9 @@ static void phy_pages_init(e820map_t *e820map);
 
 void pmm_init(void){
 
-    //show_kernel_memory_map();   /*展示内核所处物理地址*/
+    show_kernel_memory_map();   /*展示内核所处物理地址*/
 
-    //show_memory_map();
+    show_memory_map();
     e820map_t e820map;
     bzer(&e820map,sizeof(e820map_t));
     get_ram_info(&e820map);
@@ -144,7 +143,9 @@ uint32 alloc_pages(uint32 n)
         uint32 eflag;
         
         local_intr_store(eflag);
+        //printk("sssss\n");
         page = pmm_manager->alloc_pages(n);
+        //printk("hhhhhhhh\n");
         local_intr_restore(eflag);
 
         return page;

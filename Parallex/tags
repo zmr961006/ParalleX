@@ -183,6 +183,10 @@ SEG_NULL	arch/i386/include/gdt.h	15;"	d
 SEG_TSS	arch/i386/include/gdt.h	20;"	d
 SEG_UDATA	arch/i386/include/gdt.h	19;"	d
 SEG_UTEXT	arch/i386/include/gdt.h	18;"	d
+SLOB_FREE	mm_server/slob.c	27;"	d	file:
+SLOB_MIN_PART	mm_server/slob.c	31;"	d	file:
+SLOB_PAGE_COUNT	mm_server/slob.c	29;"	d	file:
+SLOB_USED	mm_server/slob.c	26;"	d	file:
 STACK_SIZE	arch/i386/include/pmm.h	15;"	d
 STACK_TOP	arch/i386/boot/init_s.s	/^STACK_TOP equ $-stack-1$/;"	d
 S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
@@ -233,6 +237,7 @@ __list_cut_position	include/list.h	/^static inline void __list_cut_position(stru
 __list_del	include/list.h	/^static inline void __list_del(struct list_head * prev, struct list_head * next)$/;"	f
 __list_splice	include/list.h	/^static inline void __list_splice(const struct list_head *list,$/;"	f
 __offsetof	include/list.h	15;"	d
+__slob__alloc_pages	mm_server/slob.c	/^void *__slob__alloc_pages(uint32 size){$/;"	f
 access	arch/i386/include/gdt.h	/^        uint8  access;          \/*存在位，特权级，描述符类型，描述符类别*\/$/;"	m	struct:gdt_entry_t
 addr	arch/i386/include/mboot.h	/^        uint32 addr;$/;"	m	struct:multiboot_t
 addr_high	arch/i386/include/pmm.h	/^            uint32 addr_high;$/;"	m	struct:e820map_t::__anon3
@@ -241,6 +246,7 @@ addr_to_page	arch/i386/mm/pmm.c	/^page_t *addr_to_page(uint32 addr)$/;"	f
 alloc_page	arch/i386/include/pmm.h	151;"	d
 alloc_pages	arch/i386/include/pmm.h	/^        uint32 (*alloc_pages)(uint32 n);$/;"	m	struct:pmm_manager
 alloc_pages	arch/i386/mm/pmm.c	/^uint32 alloc_pages(uint32 n)$/;"	f
+allocated	mm_server/slob.c	/^        uint32 allocated : 1;$/;"	m	struct:slob_block	file:
 always0	arch/i386/include/intr.h	/^        uint8  always0;$/;"	m	struct:idt_entry_t
 apm_table	arch/i386/include/mboot.h	/^        uint32 apm_table;$/;"	m	struct:multiboot_t
 assert	arch/i386/include/debug.h	23;"	d
@@ -316,16 +322,16 @@ enable_paging	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) voi
 err_code	arch/i386/include/intr.h	/^        uint32  err_code;   \/*错误代码，有中断错误代码中断会由CPU自行压栈*\/$/;"	m	struct:pt_regs_t
 esi	arch/i386/include/intr.h	/^        uint32  esi;$/;"	m	struct:pt_regs_t
 esp	arch/i386/include/intr.h	/^        uint32  esp;        \/*特权级切换CPU压栈*\/$/;"	m	struct:pt_regs_t
-ff_alloc_pages	mm_server/FF_mm.c	/^static uint32 ff_alloc_pages(uint32 n)$/;"	f	file:
-ff_free_pages	mm_server/FF_mm.c	/^static void ff_free_pages(uint32 addr, uint32 n)$/;"	f	file:
-ff_free_pages_count	mm_server/FF_mm.c	/^static uint32 ff_free_pages_count(void)$/;"	f	file:
-ff_mm_info	mm_server/FF_mm.c	/^static struct ff_mm_struct ff_mm_info;$/;"	v	typeref:struct:ff_mm_struct	file:
+ff_alloc_pages	mm_server/FF_mm.c	/^uint32 ff_alloc_pages(uint32 n)$/;"	f
+ff_free_pages	mm_server/FF_mm.c	/^void ff_free_pages(uint32 addr, uint32 n)$/;"	f
+ff_free_pages_count	mm_server/FF_mm.c	/^uint32 ff_free_pages_count(void)$/;"	f
+ff_mm_info	mm_server/FF_mm.c	/^struct ff_mm_struct ff_mm_info;$/;"	v	typeref:struct:ff_mm_struct
 ff_mm_manager	mm_server/FF_mm.c	/^struct pmm_manager ff_mm_manager = {$/;"	v	typeref:struct:pmm_manager
 ff_mm_struct	mm_server/FF_mm.c	/^struct ff_mm_struct {$/;"	s	file:
-ff_page_init	mm_server/FF_mm.c	/^static void ff_page_init(page_t *pages, uint32 n)$/;"	f	file:
-ff_show_management_info	mm_server/FF_mm.c	/^static void ff_show_management_info(void)$/;"	f	file:
-ff_show_memory_info	mm_server/FF_mm.c	/^static void ff_show_memory_info(void)$/;"	f	file:
-ff_test_mm	mm_server/FF_mm.c	/^static void ff_test_mm(void)$/;"	f	file:
+ff_page_init	mm_server/FF_mm.c	/^void ff_page_init(page_t *pages, uint32 n)$/;"	f
+ff_show_management_info	mm_server/FF_mm.c	/^void ff_show_management_info(void)$/;"	f
+ff_show_memory_info	mm_server/FF_mm.c	/^void ff_show_memory_info(void)$/;"	f
+ff_test_mm	mm_server/FF_mm.c	/^void ff_test_mm(void)$/;"	f
 flag	arch/i386/include/pmm.h	/^        uint32 flag;              \/*当前状态*\/$/;"	m	struct:page_t
 flags	arch/i386/include/intr.h	/^        uint8  flags;$/;"	m	struct:idt_entry_t
 flags	arch/i386/include/mboot.h	/^        uint32 flags;$/;"	m	struct:multiboot_t
@@ -351,6 +357,7 @@ get_mapping	arch/i386/mm/vmm.c	/^uint32 get_mapping(pgd_t *pgd_now,uint32 va,uin
 get_order	mm_server/buddy_mm.c	/^static uint32 get_order(uint32 size)$/;"	f	file:
 get_ram_info	arch/i386/mm/pmm.c	/^static void get_ram_info(e820map_t *e820map)$/;"	f	file:
 glob_mboot_ptr	arch/i386/init/init.c	/^multiboot_t * glob_mboot_ptr;$/;"	v
+glue_chunk	mm_server/slob.c	/^static void glue_chunk(slob_block_t *chunk_block){$/;"	f	file:
 granularity	arch/i386/include/gdt.h	/^        uint8  granularity;     \/*其它标志，段界限 19～16*\/$/;"	m	struct:gdt_entry_t
 idt_entries	arch/i386/intr/intr.c	/^idt_entry_t idt_entries[INTERRUPT_MAX] __attribute__ ((aligned(16)));$/;"	v
 idt_entry_t	arch/i386/include/intr.h	/^typedef struct idt_entry_t{$/;"	s
@@ -382,12 +389,17 @@ isr_common_stub	arch/i386/intr/intr_s.s	/^isr_common_stub:$/;"	l
 isr_handler	arch/i386/intr/intr.c	/^void isr_handler(pt_regs_t *regs){$/;"	f
 isr_irq_func	arch/i386/intr/intr.c	/^isr_irq_func_t isr_irq_func[INTERRUPT_MAX] = {$/;"	v
 isr_irq_func_t	arch/i386/intr/intr.c	/^typedef void (*isr_irq_func_t)();$/;"	t	file:
+ka_to_pa	arch/i386/include/vmm.h	/^static inline void *ka_to_pa(void *ka){$/;"	f
 kern_entry	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void kern_entry(void){$/;"	f
 kern_init	arch/i386/init/init.c	/^int kern_init(){$/;"	f
 kernel_satck_top	arch/i386/init/init.c	/^uint32 kernel_satck_top = (uint32)kernel_stack + STACK_SIZE;$/;"	v
 kernel_stack	arch/i386/init/init.c	/^uint8 kernel_stack[STACK_SIZE]  __attribute__((aligned(STACK_SIZE)));$/;"	v
+kfree	mm_server/slob.c	/^void kfree(void *addr){$/;"	f
+kmalloc	mm_server/slob.c	/^void *kmalloc(uint32 size){$/;"	f
+le_to_block	mm_server/slob.c	36;"	d	file:
 le_to_page	mm_server/FF_mm.c	19;"	d	file:
 le_to_page	mm_server/buddy_mm.c	17;"	d	file:
+length	mm_server/slob.c	/^        uint32 length  :  31;$/;"	m	struct:slob_block	file:
 length_high	arch/i386/include/mboot.h	/^        uint32 length_high;$/;"	m	struct:mmap_entry_t
 length_high	arch/i386/include/pmm.h	/^            uint32 length_high;$/;"	m	struct:e820map_t::__anon3
 length_low	arch/i386/include/mboot.h	/^        uint32 length_low;$/;"	m	struct:mmap_entry_t
@@ -396,6 +408,7 @@ limit	arch/i386/include/gdt.h	/^    uint16 limit;$/;"	m	struct:gdt_ptr_t
 limit	arch/i386/include/intr.h	/^        uint16 limit;$/;"	m	struct:idt_ptr_t
 limit_low	arch/i386/include/gdt.h	/^        uint16 limit_low;       \/*段界限 15～0*\/$/;"	m	struct:gdt_entry_t
 list	arch/i386/include/pmm.h	/^        struct list_head list;    \/*下个页*\/$/;"	m	struct:page_t	typeref:struct:page_t::list_head
+list	mm_server/slob.c	/^        struct list_head list;$/;"	m	struct:slob_block	typeref:struct:slob_block::list_head	file:
 list_add	include/list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f
 list_add_before	include/list.h	/^static inline void list_add_before(struct list_head *new, struct list_head *head)$/;"	f
 list_add_tail	include/list.h	/^static inline void list_add_tail(struct list_head *new, struct list_head *head)$/;"	f
@@ -545,6 +558,13 @@ show_kernel_memory_map	arch/i386/libs/debug.c	/^void show_kernel_memory_map(void
 show_memory_map	arch/i386/libs/debug.c	/^void show_memory_map(void){$/;"	f
 size	arch/i386/include/mboot.h	/^        uint32 size;$/;"	m	struct:mmap_entry_t
 size	arch/i386/include/mboot.h	/^        uint32 size;$/;"	m	struct:multiboot_t
+slob_block	mm_server/slob.c	/^typedef struct slob_block{$/;"	s	file:
+slob_block_t	mm_server/slob.c	/^}slob_block_t;$/;"	t	typeref:struct:slob_block	file:
+slob_head	mm_server/slob.c	/^LIST_HEAD(slob_head);$/;"	v
+slob_init	mm_server/slob.c	/^void slob_init(void){$/;"	f
+slob_print	mm_server/slob.c	/^void slob_print(void){$/;"	f
+slob_test	mm_server/slob.c	/^void slob_test(void){$/;"	f
+split_chunk	mm_server/slob.c	/^static void split_chunk(slob_block_t *chunk_block,uint32 len){$/;"	f	file:
 ss	arch/i386/include/intr.h	/^        uint16  ss;$/;"	m	struct:pt_regs_t
 stack	arch/i386/boot/init_s.s	/^stack: times 1024 db 0$/;"	l
 start	arch/i386/boot/init_s.s	/^start:$/;"	l

@@ -15,6 +15,9 @@
 #include "mboot.h"
 #include "pmm.h"
 #include "vmm.h"
+#include "slob.h"
+#include "FF_mm.h"
+
 extern multiboot_t * glb_mboot_ptr;
 
 /*开启分页机制以后的内核加载指针*/
@@ -93,12 +96,18 @@ int kern_init(){
     idt_init();
     pmm_init();
     vmm_init();
+
+    slob_init();
+    printk("------------------------------------\n");
+    //ff_show_memory_info();
+    //ff_show_management_info();
+    uint32 addr = ff_alloc_pages(1);
+    uint32 addr2 = ff_alloc_pages(2);
+    printk("max = addr = %x  %x\n",addr,addr2);
     printk("hello world!\n");
     //clock_init();
     //__asm__ __volatile__ ("sti");
     out_of_page();
-    while(1){
-        __asm__ __volatile__ ("hlt");
-    }
+    __asm__ __volatile__ ("hlt");
     return 0;
 }
