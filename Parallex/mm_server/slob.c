@@ -37,10 +37,8 @@ LIST_HEAD(slob_head);
 
 void *__slob__alloc_pages(uint32 size){
     
-        //uint32 addr = alloc_pages(size);
-        printk("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n");
-        uint32 addr = ff_alloc_pages(1);
-        printk("%x\n",addr);
+        uint32 addr = alloc_pages(size);
+        
         if(addr == 0){
             return NULL;
         }
@@ -97,8 +95,8 @@ void slob_init(void){
         block->allocated = SLOB_FREE;
         block->length  = SLOB_PAGE_COUNT * PAGE_SIZE - sizeof(slob_block_t);
         list_add(&block->list,&slob_head);
-        printk("de ma xi ya \n");
-        slob_test();
+        //printk("de ma xi ya \n");
+        //slob_test();
 }
 
 static void split_chunk(slob_block_t *chunk_block,uint32 len){

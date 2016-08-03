@@ -13,7 +13,7 @@
 #include"types.h"
 
 
-typedef uint32  pid_t ;  /*进程描述符*/
+//typedef uint32  pid_t ;  /*进程描述符*/
 
 typedef enum task_state{
     

@@ -10,6 +10,8 @@
 #include"vmm.h"
 #include"slob.h"
 #include"task.h"
+#include"debug.h"
+#include"vagr.h"
 
 struct task_struct * running_pro_head = NULL;
 
@@ -17,9 +19,11 @@ struct task_struct * wait_proc_head = NULL;
 
 struct task_struct * current = NULL;
 
+extern uint32 kernel_satck_top;
+
 void init_sched(){
     
-    current = (struct task_struct *)(kernel_stack_top - STACK_SIZE);
+    current = (struct task_struct *)(kernel_satck_top - STACK_SIZE);
     current->state = TASK_RUNNABLE;
     current->pid   = new_pid++;
     current->stack = current;

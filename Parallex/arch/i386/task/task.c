@@ -11,21 +11,21 @@
 #include "string.h"
 #include "sched.h"
 #include "gdt.h"
-#include "sched.h"
 #include "slob.h"
 #include "debug.h"
 #include "vagr.h"
+#include "gdt.h"
 
 /*全局PID的值*/
 pid_t new_pid  = 0;
 
 /*内核创建线程*/
 
-int32 kerenl_thread(int (*fn)(void *),void *arg){
+int32 kernel_thread(int (*fn)(void *),void *arg){
     
     struct task_struct *new_task = (struct task_struct *)kmalloc(STACK_SIZE);
 
-    bzero(new_task,sizeof(struct task_struct));
+    bzer(new_task,sizeof(struct task_struct));
 
     new_task->state = TASK_RUNNABLE;
     new_task->stack = current;
@@ -40,7 +40,7 @@ int32 kerenl_thread(int (*fn)(void *),void *arg){
 
     new_task->context.esp = (uint32)new_task + STACK_SIZE - sizeof(uint32)*3;
 
-    new_task->context.eflage = 0x200;
+    new_task->context.eflags = 0x200;
     new_task->next = running_pro_head;
 
     struct task_struct *tail  = running_pro_head;

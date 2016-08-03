@@ -20,6 +20,12 @@
 	#define FALSE 0
 #endif 
 
+#ifndef true 
+    #define true 1
+    #define false 0
+#endif
+
+
 typedef unsigned int    uint32;
 typedef 	 int    int32;
 typedef unsigned short  uint16;

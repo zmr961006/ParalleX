@@ -43,9 +43,9 @@ static void phy_pages_init(e820map_t *e820map);
 
 void pmm_init(void){
 
-    show_kernel_memory_map();   /*展示内核所处物理地址*/
+    //show_kernel_memory_map();   /*展示内核所处物理地址*/
 
-    show_memory_map();
+    //show_memory_map();
     e820map_t e820map;
     bzer(&e820map,sizeof(e820map_t));
     get_ram_info(&e820map);

@@ -77,10 +77,10 @@ uint32 ff_alloc_pages(uint32 n)
         if (n <= 0 || n > (uint32)atomic_read(&ff_mm_info.phy_page_now_count)) {
                 return 0;
         }
-        printk("n = %d\n",n);   
+        //printk("n = %d\n",n);   
         struct list_head *le, *len;
 
-        ff_show_memory_info();
+        //ff_show_memory_info();
         le = &ff_mm_info.free_list;
         //printk("le = %x\n",le);
         while ((le = le->next) != &ff_mm_info.free_list) {

@@ -17,6 +17,11 @@
 #include "vmm.h"
 #include "slob.h"
 #include "FF_mm.h"
+#include "task.h"
+#include "sched.h"
+#include "kio.h"
+#include "device.h"
+#include "string.h"
 
 extern multiboot_t * glb_mboot_ptr;
 
@@ -90,23 +95,59 @@ int out_of_page(){
 
 }
 
+uint32 flag = 0;
+int thread(void *arg){
+    while(1){
+        if(flag == 1){
+            printk("B");
+            flag = 0;
+        }
+    }
+
+
+}
+
+uint32 thread_user(){
+    while(1){  
+        if(flag == 0){
+            printk("A");
+            flag = 1;
+        }
+    }
+}
+
 int kern_init(){
-    printk("start!\n");
+    //printk("start!\n");
     gdt_init();
     idt_init();
     pmm_init();
     vmm_init();
-
     slob_init();
-    printk("------------------------------------\n");
-    //ff_show_memory_info();
-    //ff_show_management_info();
-    uint32 addr = ff_alloc_pages(1);
-    uint32 addr2 = ff_alloc_pages(2);
-    printk("max = addr = %x  %x\n",addr,addr2);
-    printk("hello world!\n");
-    //clock_init();
-    //__asm__ __volatile__ ("sti");
+    clock_init();
+    init_sched();
+    device_init();
+    //kernel_thread(thread,NULL);
+    __asm__ __volatile__ ("sti");
+    uint8 ch = 0;
+    printk("        ***Welcome to XiYouLinux OS!***\n");
+    printk("        ***My name is Parallex***\n");
+    printk("        ***thanks to Hurlex***\n");
+    char order[10];
+    uint32 i;
+    
+    printk("[XiYouLinux@localhost HelloWorld]$ ");
+    while(true){
+        if((ch = getchar()) != 0){
+            order[i] = ch;
+            printk("%c",ch);
+            i++;
+        }
+        if(strcmp(order,"ls") == 0){
+            printk("\n\n.  ..  /home  /bin  /etc  /libs /user\n");
+            memset(order,0,sizeof(order));
+        }
+    }
+    //thread_user();
     out_of_page();
     __asm__ __volatile__ ("hlt");
     return 0;

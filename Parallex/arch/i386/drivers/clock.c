@@ -9,6 +9,8 @@
 #include "clock.h"
 #include "intr.h"
 #include "vagr.h"
+#include "task.h"
+#include "sched.h"
 
 #define  FREQUENCY      100
 
@@ -30,7 +32,8 @@ void clock_callback();
 
 void clock_callback(){
 
-    printk("I am the time\n");
+    //printk("I am the time\n");
+    schedule();
 
 }
 

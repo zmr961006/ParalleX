@@ -11,7 +11,7 @@
 #include "task.h"
 
 /* 可调度链表*/
-extern struct task_struct *running_proc_head;
+extern struct task_struct *running_pro_head;
 
 /*等待进程链表*/
 extern struct task_struct *wait_proc_head;
