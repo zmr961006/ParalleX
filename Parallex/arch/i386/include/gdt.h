@@ -10,7 +10,10 @@
 
 #include "types.h"
 
+/*全局描述符结构符长度*/
 #define GDT_LENGTH     6  /*size of gdt*/
+
+/*各个内存段所在的全局描述符表下标*/
 
 #define SEG_NULL      0
 #define SEG_KTEXT     1
@@ -23,17 +26,18 @@
 #define  GD_KDATA     ((SEG_KDATA) << 3)
 #define  GD_UTEXT     ((SEG_UTEXT) << 3)
 #define  GD_UDATA     ((SEG_UDATA) << 3)
-#define  GD_TSS       ((SEG_TSS)   << 3)
+#define  GD_TSS       ((SEG_TSS)   << 3) /*任务段*/
 
 #define DPL_KERNEL    (0)            /*DPL of Segment*/
 #define DPL_USER      (3)
 
+//各个段的全局描述表的选择子
 #define KERNEL_CS     ((GD_KTEXT) | (DPL_KERNEL))        /*user and kernel DPL*/
 #define KERNEL_DS     ((GD_KDATA) | (DPL_KERNEL))
 #define USER_CS       ((GD_UTEXT) | (DPL_USER ) )
 #define USER_DS       ((GD_UDATA) | (DPL_USER ) )
 
-/*typedef struct tss_entry_t{
+typedef struct tss_entry_t{
     
     uint32 ts_link;
     uint32 ts_esp0;
@@ -77,7 +81,8 @@
     uint16 ts_t;
     uint16 ts_iomb;
 }__attribute__((packed)) tss_entry_t;
-*/
+
+
 typedef struct gdt_entry_t{     /*全局描述符结构*/
         uint16 limit_low;       /*段界限 15～0*/
         uint16 base_low;        /*段基地址 12～0*/
@@ -96,7 +101,7 @@ void gdt_init();
 
 extern void gdt_flush();
 
-//extern void tss_flush();
+extern void tss_flush();
 
 
 

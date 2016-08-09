@@ -106,7 +106,16 @@ int thread(void *arg){
 
 
 }
+int thread2(void *arg){
+    while(1){
+        
+            printk("C");
+       
+       
+    }
 
+
+}
 uint32 thread_user(){
     while(1){  
         if(flag == 0){
@@ -125,18 +134,21 @@ int kern_init(){
     slob_init();
     clock_init();
     init_sched();
-    device_init();
-    //kernel_thread(thread,NULL);
+    //device_init();
+    //__asm__ __volatile__ ("sti");
+    kernel_thread(thread,NULL);
+    kernel_thread(thread2,NULL);
     __asm__ __volatile__ ("sti");
-    uint8 ch = 0;
+    /*uint8 ch = 0;
     printk("        ***Welcome to XiYouLinux OS!***\n");
     printk("        ***My name is Parallex***\n");
     printk("        ***thanks to Hurlex***\n");
     char order[10];
     uint32 i;
     
-    printk("[XiYouLinux@localhost HelloWorld]$ ");
+    printk("\n\n[XiYouLinux@localhost HelloWorld]$ ");
     while(true){
+    
         if((ch = getchar()) != 0){
             order[i] = ch;
             printk("%c",ch);
@@ -146,8 +158,8 @@ int kern_init(){
             printk("\n\n.  ..  /home  /bin  /etc  /libs /user\n");
             memset(order,0,sizeof(order));
         }
-    }
-    //thread_user();
+    }*/
+    thread_user();
     out_of_page();
     __asm__ __volatile__ ("hlt");
     return 0;

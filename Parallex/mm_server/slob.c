@@ -26,7 +26,7 @@ typedef struct slob_block{
 #define SLOB_USED   1
 #define SLOB_FREE   0
 
-#define SLOB_PAGE_COUNT  2
+#define SLOB_PAGE_COUNT  10
 
 #define SLOB_MIN_PART    0x20
 

@@ -15,9 +15,9 @@ gdt_flush:
 .flush:
     ret 
 
-;[GLOBAL tss_flush]
-;tss_flush:
-;        mov ax,0x28
-;        ltr ax 
-;        ret 
+[GLOBAL tss_flush]    ;tss_flush
+tss_flush:
+        mov ax,0x28      ;tss 在全局是第五个描述段
+        ltr ax           ;加载TR寄存器
+        ret 
 

@@ -4,10 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+ALT	driver/kboard.c	26;"	d	file:
+ALTGR	driver/kboard.c	27;"	d	file:
 ASM	Makefile	/^ASM = nasm$/;"	m
 ASM_FLAGS	Makefile	/^ASM_FLAGS = -f elf -g -F stabs  $/;"	m
-ATOMIC_INIT	arch/i386/include/atomic.h	15;"	d
+ATOMIC_INIT	arch/i386/include/atomic.h	17;"	d
+CAPSLOCK	driver/kboard.c	30;"	d	file:
 CC	Makefile	/^CC = gcc$/;"	m
+CONTROL	driver/kboard.c	25;"	d	file:
 C_FLAGS	Makefile	/^C_FLAGS = -std=c99 -c -m32 -Wall -Wextra -ggdb -gstabs+ -ffreestanding \\$/;"	m
 C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
 C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
@@ -38,7 +42,7 @@ FL_VIF	arch/i386/include/common.h	34;"	d
 FL_VIP	arch/i386/include/common.h	35;"	d
 FL_VM	arch/i386/include/common.h	31;"	d
 FL_ZF	arch/i386/include/common.h	16;"	d
-FREQUENCY	arch/i386/drivers/clock.c	13;"	d	file:
+FREQUENCY	arch/i386/drivers/clock.c	15;"	d	file:
 GDT_LENGTH	arch/i386/include/gdt.h	13;"	d
 GD_KDATA	arch/i386/include/gdt.h	23;"	d
 GD_KTEXT	arch/i386/include/gdt.h	22;"	d
@@ -71,7 +75,7 @@ IO_PIC1	arch/i386/drivers/pic.c	11;"	d	file:
 IO_PIC1C	arch/i386/drivers/pic.c	14;"	d	file:
 IO_PIC2	arch/i386/drivers/pic.c	12;"	d	file:
 IO_PIC2C	arch/i386/drivers/pic.c	15;"	d	file:
-IO_TIMER	arch/i386/drivers/clock.c	15;"	d	file:
+IO_TIMER	arch/i386/drivers/clock.c	17;"	d	file:
 IRQ	arch/i386/intr/intr_s.s	/^IRQ 0,32$/;"	l
 IRQ	arch/i386/intr/intr_s.s	/^IRQ 1,33$/;"	l
 IRQ	arch/i386/intr/intr_s.s	/^IRQ 10,42$/;"	l
@@ -137,19 +141,19 @@ ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 5$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 6$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 7$/;"	l
 ISR_NOERRCODE	arch/i386/intr/intr_s.s	/^ISR_NOERRCODE 9$/;"	l
+KBUFFER_LEN	driver/kboard.c	208;"	d	file:
 KERNBASE	arch/i386/include/vmm.h	22;"	d
-KERNBASE	arch/i386/mm/pmm.c	21;"	d	file:
 KERNEL_CS	arch/i386/include/gdt.h	31;"	d
 KERNEL_DS	arch/i386/include/gdt.h	32;"	d
 KERNTOP	arch/i386/include/vmm.h	31;"	d
 KMEMSIZE	arch/i386/include/vmm.h	25;"	d
 KVPAGE_SIZE	arch/i386/include/vmm.h	28;"	d
-KVPAGE_SIZE	arch/i386/mm/pmm.c	22;"	d	file:
 LD	Makefile	/^LD = ld$/;"	m
 LD_FLAGS	Makefile	/^LD_FLAGS = -T arch\/i386\/scripts\/kernel.lds -nostdlib  -m elf_i386$/;"	m
 LIST_HEAD	include/list.h	19;"	d
 LIST_HEAD_INIT	include/list.h	17;"	d
-LOCK_PREFIX	arch/i386/include/atomic.h	13;"	d
+LOCK_PREFIX	arch/i386/include/atomic.h	15;"	d
+LSHIFT	driver/kboard.c	28;"	d	file:
 MAX_ORDER	mm_server/buddy_mm.c	36;"	d	file:
 MBOOT_CHECKSUM	arch/i386/boot/init_s.s	/^MBOOT_CHECKSUM        equ  - (MBOOT_HEADER_MAGIC + MBOOT_HEADER_FLAGS )$/;"	d
 MBOOT_HEADER_FLAGS	arch/i386/boot/init_s.s	/^MBOOT_HEADER_FLAGS    equ  MBOOT_PAGE_ALIGN  | MBOOT_MEM_INFO$/;"	d
@@ -158,6 +162,7 @@ MBOOT_MEM_INFO	arch/i386/boot/init_s.s	/^MBOOT_MEM_INFO        equ  1 << 1$/;"	d
 MBOOT_PAGE_ALIGN	arch/i386/boot/init_s.s	/^MBOOT_PAGE_ALIGN    equ  1 << 0 $/;"	d
 MULTIBOOT_TYPE_RAM	arch/i386/include/mboot.h	56;"	d
 NULL	arch/i386/include/types.h	15;"	d
+NUMLOCK	driver/kboard.c	32;"	d	file:
 OFFSET_INDEX	arch/i386/include/vmm.h	49;"	d
 PAGE_MAP_SIZE	arch/i386/include/vmm.h	37;"	d
 PAGE_MASK	arch/i386/include/vmm.h	19;"	d
@@ -177,6 +182,9 @@ PTE_COUNT	arch/i386/include/vmm.h	40;"	d
 PTE_INDEX	arch/i386/include/vmm.h	46;"	d
 PTE_SIZE	arch/i386/include/vmm.h	64;"	d
 RAM_KERNEL_START	arch/i386/include/pmm.h	24;"	d
+RELEASED_MASK	driver/kboard.c	37;"	d	file:
+RSHIFT	driver/kboard.c	29;"	d	file:
+SCROLLLOCK	driver/kboard.c	31;"	d	file:
 SEG_KDATA	arch/i386/include/gdt.h	17;"	d
 SEG_KTEXT	arch/i386/include/gdt.h	16;"	d
 SEG_NULL	arch/i386/include/gdt.h	15;"	d
@@ -191,12 +199,16 @@ STACK_SIZE	arch/i386/include/pmm.h	15;"	d
 STACK_TOP	arch/i386/boot/init_s.s	/^STACK_TOP equ $-stack-1$/;"	d
 S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
 S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
-TIMER_16BIT	arch/i386/drivers/clock.c	27;"	d	file:
-TIMER_CLK	arch/i386/drivers/clock.c	25;"	d	file:
-TIMER_FREQ	arch/i386/drivers/clock.c	17;"	d	file:
-TIMER_MODE	arch/i386/drivers/clock.c	19;"	d	file:
-TIMER_RATEGEN	arch/i386/drivers/clock.c	23;"	d	file:
-TIMER_SEL0	arch/i386/drivers/clock.c	21;"	d	file:
+TASK_RUNNABLE	arch/i386/include/task.h	/^        TASK_RUNNABLE = 2,     \/*可运行也可能在队列中*\/$/;"	e	enum:task_state
+TASK_SLEEPOING	arch/i386/include/task.h	/^        TASK_SLEEPOING = 1,    \/*睡眠*\/$/;"	e	enum:task_state
+TASK_UNINIT	arch/i386/include/task.h	/^        TASK_UNINIT = 0,       \/*未初始化*\/$/;"	e	enum:task_state
+TASK_ZOMBIE	arch/i386/include/task.h	/^        TASK_ZOMBIE  = 3       \/*僵死*\/$/;"	e	enum:task_state
+TIMER_16BIT	arch/i386/drivers/clock.c	29;"	d	file:
+TIMER_CLK	arch/i386/drivers/clock.c	27;"	d	file:
+TIMER_FREQ	arch/i386/drivers/clock.c	19;"	d	file:
+TIMER_MODE	arch/i386/drivers/clock.c	21;"	d	file:
+TIMER_RATEGEN	arch/i386/drivers/clock.c	25;"	d	file:
+TIMER_SEL0	arch/i386/drivers/clock.c	23;"	d	file:
 TRUE	arch/i386/include/types.h	19;"	d
 TYPES_H	arch/i386/include/types.h	12;"	d
 USER_CS	arch/i386/include/gdt.h	33;"	d
@@ -211,22 +223,28 @@ ZONE_NORMAL	arch/i386/include/pmm.h	/^        ZONE_NORMAL = 1,$/;"	e	enum:mem_zo
 ZONE_NORMAL_ADDR	arch/i386/include/pmm.h	62;"	d
 _ATOMIC_H	arch/i386/include/atomic.h	9;"	d
 _BUDDY_MM_H	include/buddy_mm.h	9;"	d
+_CHAR_DEV_H	include/char_dev.h	9;"	d
 _CLOCK_H	arch/i386/include/clock.h	9;"	d
 _COMMON_H	arch/i386/include/common.h	9;"	d
 _DEBUG_H	arch/i386/include/debug.h	9;"	d
+_DEVICE_H	include/device.h	9;"	d
 _FF_MM_H	include/FF_mm.h	9;"	d
 _GDT_H	arch/i386/include/gdt.h	9;"	d
 _INIT_H	arch/i386/include/init.h	9;"	d
 _INTR_H	arch/i386/include/intr.h	9;"	d
+_KIO_H	include/kio.h	9;"	d
 _LIST_H	include/list.h	9;"	d
 _MBOOT_H	arch/i386/include/mboot.h	9;"	d
+_MESSGAE_H	message/messgae.h	9;"	d
 _MM_H	include/mm.h	9;"	d
 _PIC_H	arch/i386/include/pic.h	9;"	d
 _PMM_H	arch/i386/include/pmm.h	9;"	d
+_SCHED_H	arch/i386/include/sched.h	9;"	d
 _SCREEN_OPERATE_H	arch/i386/include/screen_operate.h	9;"	d
 _SLOB_H	include/slob.h	9;"	d
 _STRING_H	arch/i386/include/string.h	9;"	d
 _SYNC_H	include/sync.h	9;"	d
+_TASK_H	arch/i386/include/task.h	9;"	d
 _VAGR_H	arch/i386/include/vagr.h	9;"	d
 _VMM_H	arch/i386/include/vmm.h	9;"	d
 __barrier__	arch/i386/include/common.h	39;"	d
@@ -238,7 +256,9 @@ __list_del	include/list.h	/^static inline void __list_del(struct list_head * pre
 __list_splice	include/list.h	/^static inline void __list_splice(const struct list_head *list,$/;"	f
 __offsetof	include/list.h	15;"	d
 __slob__alloc_pages	mm_server/slob.c	/^void *__slob__alloc_pages(uint32 size){$/;"	f
+abj	message/messgae.h	/^    char abj[12];$/;"	m	struct:messgae
 access	arch/i386/include/gdt.h	/^        uint8  access;          \/*存在位，特权级，描述符类型，描述符类别*\/$/;"	m	struct:gdt_entry_t
+add_char_dev	driver/char_dev.c	/^int add_char_dev(char_dev_t *cdev)$/;"	f
 addr	arch/i386/include/mboot.h	/^        uint32 addr;$/;"	m	struct:multiboot_t
 addr_high	arch/i386/include/pmm.h	/^            uint32 addr_high;$/;"	m	struct:e820map_t::__anon3
 addr_low	arch/i386/include/pmm.h	/^            uint32 addr_low;$/;"	m	struct:e820map_t::__anon3
@@ -269,6 +289,7 @@ base_high	arch/i386/include/intr.h	/^        uint16 base_high;$/;"	m	struct:idt_
 base_low	arch/i386/include/gdt.h	/^        uint16 base_low;        \/*段基地址 12～0*\/$/;"	m	struct:gdt_entry_t
 base_low	arch/i386/include/intr.h	/^        uint16 base_low;$/;"	m	struct:idt_entry_t
 base_middle	arch/i386/include/gdt.h	/^        uint8  base_middle;     \/*段基地址 23～16*\/$/;"	m	struct:gdt_entry_t
+bbj	message/messgae.h	/^    char bbj[12];$/;"	m	struct:messgae
 boot_device	arch/i386/include/mboot.h	/^        uint32 boot_device;$/;"	m	struct:multiboot_t
 boot_loader_name	arch/i386/include/mboot.h	/^        uint32 boot_loader_name;$/;"	m	struct:multiboot_t
 buddy_alloc_pages	mm_server/buddy_mm.c	/^static uint32 buddy_alloc_pages(uint32 n)$/;"	f	file:
@@ -284,7 +305,15 @@ buddy_show_management_info	mm_server/buddy_mm.c	/^static void buddy_show_managem
 buddy_show_memory_info	mm_server/buddy_mm.c	/^static void buddy_show_memory_info(void)$/;"	f	file:
 buddy_test_mm	mm_server/buddy_mm.c	/^static void buddy_test_mm(void)$/;"	f	file:
 bzer	arch/i386/libs/string.c	/^void bzer(void *dest,uint32 len){$/;"	f
+capslock_scancodes	driver/kboard.c	/^        uint8 capslock_scancodes[128];$/;"	m	struct:keymap	file:
+cbj	message/messgae.h	/^    char cbj[12];$/;"	m	struct:messgae
 change_bit	arch/i386/include/atomic.h	/^static inline void change_bit(int32 nr,volatile void *addr){$/;"	f
+change_task_to	arch/i386/task/sched.c	/^void change_task_to(struct task_struct *next){$/;"	f
+char_dev	include/char_dev.h	/^typedef struct char_dev{$/;"	s
+char_dev_init	driver/char_dev.c	/^void char_dev_init(void)$/;"	f
+char_dev_t	include/char_dev.h	/^}char_dev_t;$/;"	t	typeref:struct:char_dev
+char_devs	driver/char_dev.c	/^char_dev_t *char_devs;$/;"	v
+char_ops	include/char_dev.h	/^    struct char_ops{$/;"	s	struct:char_dev
 clear_bit	arch/i386/include/atomic.h	/^static inline void clear_bit(int32 nr,volatile void *addr){$/;"	f
 clear_interrupt_chip	arch/i386/drivers/pic.c	/^void clear_interrupt_chip(uint32 intr_no){$/;"	f
 clear_page_ncount_flag	arch/i386/include/pmm.h	93;"	d
@@ -295,13 +324,22 @@ clock_init	arch/i386/drivers/clock.c	/^void clock_init(void){$/;"	f
 cmdline	arch/i386/include/mboot.h	/^        uint32 cmdline;$/;"	m	struct:multiboot_t
 color	arch/i386/include/screen_operate.h	/^}color;$/;"	t	typeref:enum:__anon2
 config_table	arch/i386/include/mboot.h	/^        uint32 config_table;$/;"	m	struct:multiboot_t
+context	arch/i386/include/task.h	/^        struct context context;  \/*进程切换需要上下文信息*\/$/;"	m	struct:task_struct	typeref:struct:task_struct::context
+context	arch/i386/include/task.h	/^typedef struct context{$/;"	s
+context	arch/i386/include/task.h	/^}context;$/;"	t	typeref:struct:context
+control_map	driver/kboard.c	/^        uint8 control_map[8];$/;"	m	struct:keymap	file:
+controls	driver/kboard.c	/^        key_status_t controls;          \/\/ 键盘的控制状态信息$/;"	m	struct:keymap	file:
 count	arch/i386/include/pmm.h	/^        uint32 count;$/;"	m	struct:e820map_t
 counter	arch/i386/include/types.h	/^    volatile int counter;$/;"	m	struct:__anon1
 cpu_hlt	arch/i386/include/common.h	/^static inline void cpu_hlt(void){$/;"	f
 cs	arch/i386/include/intr.h	/^        uint16  cs;$/;"	m	struct:pt_regs_t
+curr_layout	driver/kboard.c	/^        keymap_t *curr_layout;           \/\/ 当前的字符集$/;"	m	struct:kboard_device	file:
+current	arch/i386/task/sched.c	/^struct task_struct * current = NULL;$/;"	v	typeref:struct:task_struct
 dd	arch/i386/boot/init_s.s	/^dd MBOOT_CHECKSUM $/;"	l
 dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_FLAGS $/;"	l
 dd	arch/i386/boot/init_s.s	/^dd MBOOT_HEADER_MAGIC $/;"	l
+device_init	driver/device.c	/^void device_init(void){$/;"	f
+device_valid	include/char_dev.h	/^            uint32 (*device_valid)(void);$/;"	m	struct:char_dev::char_ops
 disable_intr	arch/i386/include/common.h	/^static inline void disable_intr(void){$/;"	f
 do_page_fault	arch/i386/mm/fault.c	/^void do_page_fault(pt_regs_t *regs){$/;"	f
 drives_addr	arch/i386/include/mboot.h	/^        uint32 drives_addr;$/;"	m	struct:multiboot_t
@@ -311,17 +349,24 @@ e820map_t	arch/i386/include/pmm.h	/^typedef struct e820map_t {$/;"	s
 e820map_t	arch/i386/include/pmm.h	/^}e820map_t;$/;"	t	typeref:struct:e820map_t
 eax	arch/i386/include/intr.h	/^        uint32  eax;$/;"	m	struct:pt_regs_t
 ebp	arch/i386/include/intr.h	/^        uint32  ebp;$/;"	m	struct:pt_regs_t
+ebp	arch/i386/include/task.h	/^        uint32 ebp;         \/*保存堆栈中函数或者过程的局部变量*\/$/;"	m	struct:context
 ebx	arch/i386/include/intr.h	/^        uint32  ebx;$/;"	m	struct:pt_regs_t
+ebx	arch/i386/include/task.h	/^        uint32 ebx;         \/*通常作为内存偏移量*\/$/;"	m	struct:context
 ecx	arch/i386/include/intr.h	/^        uint32  ecx;$/;"	m	struct:pt_regs_t
 edi	arch/i386/include/intr.h	/^        uint32  edi;        \/*pusha 指令压栈*\/$/;"	m	struct:pt_regs_t
+edi	arch/i386/include/task.h	/^        uint32 edi;         \/*通常作为内存中目的指针来使用*\/ $/;"	m	struct:context
 edx	arch/i386/include/intr.h	/^        uint32  edx;$/;"	m	struct:pt_regs_t
 eflags	arch/i386/include/intr.h	/^        uint32  eflags;$/;"	m	struct:pt_regs_t
+eflags	arch/i386/include/task.h	/^        uint32 eflags;      \/*标志寄存器*\/$/;"	m	struct:context
 eip	arch/i386/include/intr.h	/^        uint32  eip;        \/*CPU自动压栈*\/ $/;"	m	struct:pt_regs_t
 enable_intr	arch/i386/include/common.h	/^static inline void enable_intr(void){$/;"	f
 enable_paging	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void enable_paging(void){$/;"	f
 err_code	arch/i386/include/intr.h	/^        uint32  err_code;   \/*错误代码，有中断错误代码中断会由CPU自行压栈*\/$/;"	m	struct:pt_regs_t
 esi	arch/i386/include/intr.h	/^        uint32  esi;$/;"	m	struct:pt_regs_t
+esi	arch/i386/include/task.h	/^        uint32 esi;         \/*通常作为内存中复制源地址*\/$/;"	m	struct:context
 esp	arch/i386/include/intr.h	/^        uint32  esp;        \/*特权级切换CPU压栈*\/$/;"	m	struct:pt_regs_t
+esp	arch/i386/include/task.h	/^        uint32 esp;         \/*指向堆栈中即将执行的地址*\/$/;"	m	struct:context
+false	arch/i386/include/types.h	25;"	d
 ff_alloc_pages	mm_server/FF_mm.c	/^uint32 ff_alloc_pages(uint32 n)$/;"	f
 ff_free_pages	mm_server/FF_mm.c	/^void ff_free_pages(uint32 addr, uint32 n)$/;"	f
 ff_free_pages_count	mm_server/FF_mm.c	/^uint32 ff_free_pages_count(void)$/;"	f
@@ -333,6 +378,7 @@ ff_show_management_info	mm_server/FF_mm.c	/^void ff_show_management_info(void)$/
 ff_show_memory_info	mm_server/FF_mm.c	/^void ff_show_memory_info(void)$/;"	f
 ff_test_mm	mm_server/FF_mm.c	/^void ff_test_mm(void)$/;"	f
 flag	arch/i386/include/pmm.h	/^        uint32 flag;              \/*当前状态*\/$/;"	m	struct:page_t
+flag	arch/i386/init/init.c	/^uint32 flag = 0;$/;"	v
 flags	arch/i386/include/intr.h	/^        uint8  flags;$/;"	m	struct:idt_entry_t
 flags	arch/i386/include/mboot.h	/^        uint32 flags;$/;"	m	struct:multiboot_t
 forkret_s	arch/i386/intr/intr_s.s	/^forkret_s:$/;"	l
@@ -353,9 +399,11 @@ gdt_ptr	arch/i386/mm/gdt.c	/^gdt_ptr_t gdt_ptr;$/;"	v
 gdt_ptr_t	arch/i386/include/gdt.h	/^typedef struct gdt_ptr_t {$/;"	s
 gdt_ptr_t	arch/i386/include/gdt.h	/^}__attribute__((packed)) gdt_ptr_t;$/;"	t	typeref:struct:gdt_ptr_t
 gdt_set_gate	arch/i386/mm/gdt.c	/^static void gdt_set_gate(uint32 num,uint32 base,uint32 limit,uint8 access,uint8 gran){$/;"	f	file:
+get_desc	include/char_dev.h	/^            const char * (*get_desc)(void);$/;"	m	struct:char_dev::char_ops
 get_mapping	arch/i386/mm/vmm.c	/^uint32 get_mapping(pgd_t *pgd_now,uint32 va,uint32 *pa){$/;"	f
 get_order	mm_server/buddy_mm.c	/^static uint32 get_order(uint32 size)$/;"	f	file:
 get_ram_info	arch/i386/mm/pmm.c	/^static void get_ram_info(e820map_t *e820map)$/;"	f	file:
+getchar	driver/kio.c	/^char getchar(void){$/;"	f
 glob_mboot_ptr	arch/i386/init/init.c	/^multiboot_t * glob_mboot_ptr;$/;"	v
 glue_chunk	mm_server/slob.c	/^static void glue_chunk(slob_block_t *chunk_block){$/;"	f	file:
 granularity	arch/i386/include/gdt.h	/^        uint8  granularity;     \/*其它标志，段界限 19～16*\/$/;"	m	struct:gdt_entry_t
@@ -370,7 +418,9 @@ idt_ptr_t	arch/i386/include/intr.h	/^}__attribute__((packed)) idt_ptr_t;$/;"	t	t
 idt_set_gate	arch/i386/intr/intr.c	/^void idt_set_gate(uint8 num,uint32 base,uint16 sel,uint8 flags){$/;"	f
 idx_to_page	mm_server/buddy_mm.c	/^static inline page_t *idx_to_page(uint32 idx)$/;"	f	file:
 inb	arch/i386/include/common.h	/^static inline uint8 inb(uint16 port){                           \/*read a byte*\/$/;"	f
+init	include/char_dev.h	/^            int (*init)(void);$/;"	m	struct:char_dev::char_ops
 init_interrupt_chip	arch/i386/drivers/pic.c	/^void init_interrupt_chip(void){$/;"	f
+init_sched	arch/i386/task/sched.c	/^void init_sched(){$/;"	f
 int16	arch/i386/include/types.h	/^typedef 	 short  int16;$/;"	t
 int32	arch/i386/include/types.h	/^typedef 	 int    int32;$/;"	t
 int64	arch/i386/include/types.h	/^typedef          long long  int64;$/;"	t
@@ -380,22 +430,45 @@ interrupt_handler_t	arch/i386/include/intr.h	/^typedef void (*interrupt_handler_
 interrupt_handlers	arch/i386/intr/intr.c	/^interrupt_handler_t interrupt_handlers[INTERRUPT_MAX] __attribute__ ((aligned(4)));$/;"	v
 intrname	arch/i386/intr/intr.c	/^const char * intrname(uint32 intrno){$/;"	f
 inw	arch/i386/include/common.h	/^static inline uint16 inw(uint16 port){$/;"	f
+ioctl	include/char_dev.h	/^            int (*ioctl)(int,int);$/;"	m	struct:char_dev::char_ops
 irq_common_stub	arch/i386/intr/intr_s.s	/^irq_common_stub:$/;"	l
 irq_handler	arch/i386/intr/intr.c	/^void irq_handler(pt_regs_t *regs){$/;"	f
 is_page_ncount	arch/i386/include/pmm.h	95;"	d
 is_page_order	arch/i386/include/pmm.h	101;"	d
 is_page_reserved	arch/i386/include/pmm.h	89;"	d
+is_readable	include/char_dev.h	/^    uint32 is_readable;$/;"	m	struct:char_dev
+is_valid	driver/kboard.c	/^        uint32 is_valid;                   \/\/ 设备是否可用$/;"	m	struct:kboard_device	file:
+is_writeable	include/char_dev.h	/^    uint32 is_writeable;$/;"	m	struct:char_dev
 isr_common_stub	arch/i386/intr/intr_s.s	/^isr_common_stub:$/;"	l
 isr_handler	arch/i386/intr/intr.c	/^void isr_handler(pt_regs_t *regs){$/;"	f
 isr_irq_func	arch/i386/intr/intr.c	/^isr_irq_func_t isr_irq_func[INTERRUPT_MAX] = {$/;"	v
 isr_irq_func_t	arch/i386/intr/intr.c	/^typedef void (*isr_irq_func_t)();$/;"	t	file:
 ka_to_pa	arch/i386/include/vmm.h	/^static inline void *ka_to_pa(void *ka){$/;"	f
+kb_device	driver/kboard.c	/^} kb_device;$/;"	v	typeref:struct:kboard_device	file:
+kb_device_valid	driver/kboard.c	/^static uint32  kb_device_valid(void)$/;"	f	file:
+kb_get_desc	driver/kboard.c	/^static const char *kb_get_desc(void)$/;"	f	file:
+kb_getchar	driver/kboard.c	/^static uint8 kb_getchar(void)$/;"	f	file:
+kb_init	driver/kboard.c	/^static int kb_init(void)$/;"	f	file:
+kb_ioctl	driver/kboard.c	/^static int kb_ioctl(int op, int flag)$/;"	f	file:
+kb_read	driver/kboard.c	/^static int kb_read(void *dec, uint32 len)$/;"	f	file:
+kb_write	driver/kboard.c	/^static int kb_write(const void *src,uint32 len)$/;"	f	file:
+kboard_dev	driver/kboard.c	/^char_dev_t kboard_dev = {$/;"	v
+kboard_device	driver/kboard.c	/^static struct kboard_device {$/;"	s	file:
+kbuffer	driver/kboard.c	/^        uint8 kbuffer[KBUFFER_LEN];    \/\/ 键盘输入的缓冲区队列$/;"	m	struct:kboard_device	file:
 kern_entry	arch/i386/init/init.c	/^__attribute__((section(".init.text"))) void kern_entry(void){$/;"	f
 kern_init	arch/i386/init/init.c	/^int kern_init(){$/;"	f
 kernel_satck_top	arch/i386/init/init.c	/^uint32 kernel_satck_top = (uint32)kernel_stack + STACK_SIZE;$/;"	v
 kernel_stack	arch/i386/init/init.c	/^uint8 kernel_stack[STACK_SIZE]  __attribute__((aligned(STACK_SIZE)));$/;"	v
+kernel_thread	arch/i386/task/task.c	/^int32 kernel_thread(int (*fn)(void *),void *arg){$/;"	f
+key_status_t	driver/kboard.c	/^typedef uint8 key_status_t;$/;"	t	file:
+keyboard_handler	driver/kboard.c	/^static void keyboard_handler( pt_regs_t *regs)$/;"	f	file:
+keymap	driver/kboard.c	/^struct keymap {$/;"	s	file:
+keymap_t	driver/kboard.c	/^} keymap_t;$/;"	t	typeref:struct:keymap	file:
 kfree	mm_server/slob.c	/^void kfree(void *addr){$/;"	f
+kfront	driver/kboard.c	/^        uint32 kfront;                 \/\/ 缓冲队列队头$/;"	m	struct:kboard_device	file:
 kmalloc	mm_server/slob.c	/^void *kmalloc(uint32 size){$/;"	f
+krear	driver/kboard.c	/^        uint32 krear;                  \/\/ 缓冲队列队尾$/;"	m	struct:kboard_device	file:
+kthread_exit	arch/i386/task/task.c	/^void kthread_exit(){$/;"	f
 le_to_block	mm_server/slob.c	36;"	d	file:
 le_to_page	mm_server/FF_mm.c	19;"	d	file:
 le_to_page	mm_server/buddy_mm.c	17;"	d	file:
@@ -449,11 +522,15 @@ mem_zone_t	arch/i386/include/pmm.h	/^typedef enum mem_zone_t {  $/;"	g
 mem_zone_t	arch/i386/include/pmm.h	/^}mem_zone_t;$/;"	t	typeref:enum:mem_zone_t
 memcpy	arch/i386/libs/string.c	/^void *memcpy(void *dest,const void *src,uint32 len){$/;"	f
 memset	arch/i386/libs/string.c	/^void memset(void *dest,int8 val,uint32 len){$/;"	f
+message	message/messgae.h	/^}message;$/;"	t	typeref:struct:messgae
+messgae	message/messgae.h	/^typedef struct messgae{$/;"	s
+mm	arch/i386/include/task.h	/^        struct mm_struct *mm;    \/*进程内存地址的页目录*\/$/;"	m	struct:task_struct	typeref:struct:task_struct::mm_struct
 mm_addr_end	mm_server/FF_mm.c	/^        uint32 mm_addr_end;          \/\/ 物理内存页管理结束地址$/;"	m	struct:ff_mm_struct	file:
 mm_addr_end	mm_server/buddy_mm.c	/^        uint32 mm_addr_end;                           \/\/ 物理内存页管理结束地址$/;"	m	struct:buddy_mm_struct	file:
 mm_addr_start	mm_server/FF_mm.c	/^        uint32 mm_addr_start;        \/\/ 物理内存页管理起始地址$/;"	m	struct:ff_mm_struct	file:
 mm_addr_start	mm_server/buddy_mm.c	/^        uint32 mm_addr_start;                         \/\/ 物理内存页管理起始地址$/;"	m	struct:buddy_mm_struct	file:
 mm_init	mm_server/mm.c	/^void mm_init(void ){$/;"	f
+mm_struct	arch/i386/include/task.h	/^struct mm_struct {$/;"	s
 mmap_addr	arch/i386/include/mboot.h	/^        uint32 mmap_addr;$/;"	m	struct:multiboot_t
 mmap_entry_t	arch/i386/include/mboot.h	/^typedef struct mmap_entry_t{$/;"	s
 mmap_entry_t	arch/i386/include/mboot.h	/^}__attribute__((packed)) mmap_entry_t; $/;"	t	typeref:struct:mmap_entry_t
@@ -465,13 +542,19 @@ move_point	arch/i386/libs/screen_operate.c	/^static void move_point()$/;"	f	file
 multiboot_t	arch/i386/include/mboot.h	/^typedef struct multiboot_t {$/;"	s
 multiboot_t	arch/i386/include/mboot.h	/^}__attribute__((packed)) multiboot_t ;$/;"	t	typeref:struct:multiboot_t
 name	arch/i386/include/pmm.h	/^        const char *name;              \/*管理算法*\/$/;"	m	struct:pmm_manager
+name	include/char_dev.h	/^    const char *name;$/;"	m	struct:char_dev
 ncount	arch/i386/include/pmm.h	/^            uint32 ncount;$/;"	m	union:page_t::__anon4
+new_pid	arch/i386/task/task.c	/^pid_t new_pid  = 0;$/;"	v
+next	arch/i386/include/task.h	/^        struct task_struct *next;    \/*链表指针*\/$/;"	m	struct:task_struct	typeref:struct:task_struct::task_struct
 next	arch/i386/include/types.h	/^    struct list_head *next,*prev;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
+next	include/char_dev.h	/^    struct char_dev *next;$/;"	m	struct:char_dev	typeref:struct:char_dev::char_dev
+next	message/messgae.h	/^    struct message * next;$/;"	m	struct:messgae	typeref:struct:messgae::message
 noreturn	arch/i386/boot/init_s.s	/^noreturn:$/;"	l
 nr_free	mm_server/buddy_mm.c	/^        atomic_t nr_free[MAX_ORDER + 1];                \/\/ 对应链上内存块数量$/;"	m	struct:buddy_mm_struct	file:
 nr_free	mm_server/buddy_mm.c	53;"	d	file:
 num	arch/i386/include/mboot.h	/^        uint32 num;$/;"	m	struct:multiboot_t
 oesp	arch/i386/include/intr.h	/^        uint32  oesp;$/;"	m	struct:pt_regs_t
+ops	include/char_dev.h	/^    }ops;$/;"	m	struct:char_dev	typeref:struct:char_dev::char_ops
 order	arch/i386/include/pmm.h	/^            uint32 order ;$/;"	m	union:page_t::__anon4
 out_of_page	arch/i386/init/init.c	/^int out_of_page(){$/;"	f
 outb	arch/i386/include/common.h	/^static inline void outb(uint16 port,uint8 value){               \/*write a byte*\/$/;"	f
@@ -491,6 +574,7 @@ page_to_addr	arch/i386/mm/pmm.c	/^uint32 page_to_addr(page_t *page)$/;"	f
 page_to_idx	mm_server/buddy_mm.c	/^static inline uint32 page_to_idx(page_t *page)$/;"	f	file:
 pages_base	mm_server/buddy_mm.c	/^        page_t *pages_base;                             \/\/ 物理页管理结构起始地址$/;"	m	struct:buddy_mm_struct	file:
 painc	arch/i386/libs/debug.c	/^void painc(char *s){$/;"	f
+pgd_dir	arch/i386/include/task.h	/^    pgd_t * pgd_dir;$/;"	m	struct:mm_struct
 pgd_kernel	arch/i386/mm/vmm.c	/^pgd_t pgd_kernel[PGD_SIZE] __attribute__ ((aligned(PAGE_SIZE)));$/;"	v
 pgd_t	arch/i386/include/types.h	/^typedef uint32 pgd_t;$/;"	t
 pgd_tmp	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pgd_t *pgd_tmp = (pgd_t  *)0x1000;$/;"	v
@@ -501,6 +585,7 @@ phy_page_now_count	mm_server/buddy_mm.c	/^        atomic_t phy_page_now_count;  
 phy_pages	arch/i386/mm/pmm.c	/^static page_t *phy_pages = (page_t *)((uint32)kernel_end + KERNBASE + KVPAGE_SIZE);$/;"	v	file:
 phy_pages_count	arch/i386/mm/pmm.c	/^static uint32 phy_pages_count;$/;"	v	file:
 phy_pages_init	arch/i386/mm/pmm.c	/^static void phy_pages_init(e820map_t *e820map)$/;"	f	file:
+pid	arch/i386/include/task.h	/^        pid_t pid;$/;"	m	struct:task_struct
 pid_t	arch/i386/include/types.h	/^typedef int32  pid_t;$/;"	t
 pmm_addr_end	arch/i386/mm/pmm.c	/^static uint32 pmm_addr_end;$/;"	v	file:
 pmm_addr_start	arch/i386/mm/pmm.c	/^static uint32 pmm_addr_start;$/;"	v	file:
@@ -519,9 +604,13 @@ pte_addr	arch/i386/mm/vmm.c	/^static pte_t *pte_addr = (pte_t *)((uint32)kernel_
 pte_high	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pte_t *pte_high = (pte_t *)0x3000;$/;"	v
 pte_low	arch/i386/init/init.c	/^__attribute__((section(".init.data"))) pte_t *pte_low = (pte_t  *)0x2000;$/;"	v
 pte_t	arch/i386/include/types.h	/^typedef int32  pte_t;$/;"	t
+read	include/char_dev.h	/^            int (*read)(void *,uint32);$/;"	m	struct:char_dev::char_ops
 read_eflags	arch/i386/include/common.h	/^static inline uint32 read_eflags(void){$/;"	f
 ref	arch/i386/include/pmm.h	/^        atomic_t ref;             \/*引用次数*\/$/;"	m	struct:page_t
 register_interrupt_handler	arch/i386/intr/intr.c	/^void register_interrupt_handler(uint8 n,interrupt_handler_t h){$/;"	f
+running_pro_head	arch/i386/task/sched.c	/^struct task_struct * running_pro_head = NULL;$/;"	v	typeref:struct:task_struct
+scancodes	driver/kboard.c	/^        uint8 scancodes[128];         \/\/ 键盘扫描码的映射$/;"	m	struct:keymap	file:
+schedule	arch/i386/task/sched.c	/^void schedule(){$/;"	f
 screen_abscissa	arch/i386/libs/screen_operate.c	/^static int16 screen_abscissa = 0;$/;"	v	file:
 screen_black	arch/i386/include/screen_operate.h	/^    screen_black = 0x0,$/;"	e	enum:__anon2
 screen_blue	arch/i386/include/screen_operate.h	/^    screen_blue  = 0x1,$/;"	e	enum:__anon2
@@ -553,6 +642,7 @@ set_page_ncount_flag	arch/i386/include/pmm.h	91;"	d
 set_page_order_flag	arch/i386/include/pmm.h	97;"	d
 set_page_ref	arch/i386/include/pmm.h	/^static inline void set_page_ref(page_t *page,int32 val){$/;"	f
 set_page_reserved_flag	arch/i386/include/pmm.h	82;"	d
+shift_scancodes	driver/kboard.c	/^        uint8 shift_scancodes[128];$/;"	m	struct:keymap	file:
 shndx	arch/i386/include/mboot.h	/^        uint32 shndx;$/;"	m	struct:multiboot_t
 show_kernel_memory_map	arch/i386/libs/debug.c	/^void show_kernel_memory_map(void){$/;"	f
 show_memory_map	arch/i386/libs/debug.c	/^void show_memory_map(void){$/;"	f
@@ -567,15 +657,24 @@ slob_test	mm_server/slob.c	/^void slob_test(void){$/;"	f
 split_chunk	mm_server/slob.c	/^static void split_chunk(slob_block_t *chunk_block,uint32 len){$/;"	f	file:
 ss	arch/i386/include/intr.h	/^        uint16  ss;$/;"	m	struct:pt_regs_t
 stack	arch/i386/boot/init_s.s	/^stack: times 1024 db 0$/;"	l
+stack	arch/i386/include/task.h	/^        void *stack;             \/*线程内核栈地址*\/$/;"	m	struct:task_struct
 start	arch/i386/boot/init_s.s	/^start:$/;"	l
+state	arch/i386/include/task.h	/^        __volatile__ task_state state;$/;"	m	struct:task_struct
 strcat	arch/i386/libs/string.c	/^int8 *strcat(int8 *dest,const int8 *val){$/;"	f
 strcmp	arch/i386/libs/string.c	/^int strcmp(const int8* dest,const int8 *val){$/;"	f
 strcpy	arch/i386/libs/string.c	/^int8 *strcpy(char *dest,const char *val){$/;"	f
 strlen	arch/i386/libs/string.c	/^int strlen(const int8 * src){$/;"	f
 switch_pgd	arch/i386/include/common.h	/^static inline void switch_pgd(uint32 pd){$/;"	f
+switch_to	arch/i386/task/switch_to.s	/^switch_to:$/;"	l
+task_state	arch/i386/include/task.h	/^typedef enum task_state{$/;"	g
+task_state	arch/i386/include/task.h	/^}task_state;$/;"	t	typeref:enum:task_state
+task_struct	arch/i386/include/task.h	/^struct task_struct {$/;"	s
 test_bit	arch/i386/include/atomic.h	/^static inline uint32 test_bit(int32 nr,volatile void * addr){$/;"	f
+thread	arch/i386/init/init.c	/^int thread(void *arg){$/;"	f
+thread_user	arch/i386/init/init.c	/^uint32 thread_user(){$/;"	f
 time_t	arch/i386/include/types.h	/^typedef uint32 time_t;$/;"	t
 tlb_reload_page	arch/i386/include/common.h	/^static inline void tlb_reload_page(uint32 va){$/;"	f
+true	arch/i386/include/types.h	24;"	d
 type	arch/i386/include/mboot.h	/^        uint32 type;$/;"	m	struct:mmap_entry_t
 type	arch/i386/include/pmm.h	/^            uint32 type;$/;"	m	struct:e820map_t::__anon3
 uint16	arch/i386/include/types.h	/^typedef unsigned short  uint16;$/;"	t
@@ -583,6 +682,7 @@ uint32	arch/i386/include/types.h	/^typedef unsigned int    uint32;$/;"	t
 uint64	arch/i386/include/types.h	/^typedef unsigned long long uint64;$/;"	t
 uint8	arch/i386/include/types.h	/^typedef unsigned char 	uint8;$/;"	t
 unmap	arch/i386/mm/vmm.c	/^void unmap(pgd_t *pgd_now,uint32 va){$/;"	f
+us_keymap	driver/kboard.c	/^static keymap_t us_keymap = {$/;"	v	file:
 va_arg	arch/i386/include/vagr.h	19;"	d
 va_end	arch/i386/include/vagr.h	22;"	d
 va_list	arch/i386/include/vagr.h	14;"	d
@@ -595,4 +695,6 @@ vbe_mode	arch/i386/include/mboot.h	/^        uint32 vbe_mode;$/;"	m	struct:multi
 vbe_mode_info	arch/i386/include/mboot.h	/^        uint32 vbe_mode_info;$/;"	m	struct:multiboot_t
 vmm_init	arch/i386/mm/vmm.c	/^void vmm_init(void){$/;"	f
 vprintk	arch/i386/libs/printk.c	/^int vprintk(const int8 * format,char *ap){$/;"	f
+wait_proc_head	arch/i386/task/sched.c	/^struct task_struct * wait_proc_head = NULL;$/;"	v	typeref:struct:task_struct
+write	include/char_dev.h	/^            int (*write)(const void *,uint32);$/;"	m	struct:char_dev::char_ops
 write_eflags	arch/i386/include/common.h	/^static inline void write_eflags(uint32 eflags){$/;"	f

@@ -26,7 +26,7 @@ void init_sched(){
     current = (struct task_struct *)(kernel_satck_top - STACK_SIZE);
     current->state = TASK_RUNNABLE;
     current->pid   = new_pid++;
-    current->stack = current;
+    current->stack = current;    /*当前运行任务*/
     current->mm    = NULL;
 
     current->next  = current;

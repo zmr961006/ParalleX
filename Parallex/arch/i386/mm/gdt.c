@@ -35,15 +35,18 @@ static void gdt_set_gate(uint32 num,uint32 base,uint32 limit,uint8 access,uint8 
 
 }
 
-//static tss_entry_t tss_entry __attribute__ ((aligned(8)));
+static tss_entry_t tss_entry __attribute__ ((aligned(8)));
 
-/*static void tss_set_gate(int32 num,uint16 ss0,uint32 esp0){
-    
+static void tss_set_gate(int32 num,uint16 ss0,uint32 esp0){
+
+    /*获取TSS描述符的位置和长度*/
     uint32 base = (uint32)&tss_entry;              
     uint32 limit = base + sizeof(tss_entry);
-
+    
+    /*在GDT 中增加TSS段描述符*/
     gdt_set_gate(num,base,limit,0x89,0x40);        
 
+    /*设置内核栈地址*/
     tss_entry.ts_ss0 = ss0;                       
     tss_entry.ts_esp0 = esp0;
 
@@ -55,9 +58,11 @@ static void gdt_set_gate(uint32 num,uint32 base,uint32 limit,uint8 access,uint8 
     tss_entry.ts_gs = USER_DS;
 
 
-}*/
+}
 
-/*typedef struct gdt_ptr_t {
+/*
+
+typedef struct gdt_ptr_t {
     uint16 limit;
     uint32 base;
     
@@ -77,10 +82,11 @@ void gdt_init(){
     gdt_set_gate(SEG_UTEXT,0x0,0xFFFFFFFF,0xFA,0xC0);
     gdt_set_gate(SEG_UDATA,0x0,0xFFFFFFFF,0xF2,0xC0);
 
-    //tss_set_gate(SEG_TSS,KERNEL_DS,0);
-
+    tss_set_gate(SEG_TSS,KERNEL_DS,0);
+    /*加载全局描述符表地址到GDTR*/
     gdt_flush((uint32)&gdt_ptr);
-    //tss_flush();
+    /*加载TR*/
+    tss_flush();
 
 }
 
