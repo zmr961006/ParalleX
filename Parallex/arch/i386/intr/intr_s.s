@@ -59,32 +59,33 @@ ISR_NOERRCODE 31
 ISR_NOERRCODE 128 
 
 [GLOBAL isr_common_stub]
+[GLOBAL forkret_s]
 [EXTERN isr_handler]
 isr_common_stub:
-    pusha
-    mov ax,ds
+    pusha            ;push edi,esi,ebp,esp,ebx,edx,ecx,eax
+    mov ax,ds        ;保存数据段描述符
     push eax
 
-    mov ax,0x10
-    mov ds,ax
+    mov ax,0x10      ;加载内核数据段描述符
+    mov ds,ax        ;平坦模式寻址
     mov es,ax
     mov fs,ax
     mov gs,ax
     mov ss,ax
 
-    push esp
+    push esp         ;esp 等价pt_regs 首地址
     call isr_handler
-    add esp,4
+    add esp,4        ;清除压入的参数
 
-    pop ebx
+    pop ebx          ;恢复原来数据段描述符
     mov ds,bx
     mov es,bx
     mov fs,bx
     mov gs,bx
     mov ss,bx
 
-    popa 
-    and esp,8
+    popa             ;pops edi esi ebp ebx edx ecx eax 
+    add esp,8        ;清除栈中的error code / ISR 
     iret
 .end:
 
@@ -133,7 +134,7 @@ irq_common_stub:
     add esp,4
 
 forkret_s:
-    pop ebx
+    pop ebx       ;恢复数据段
     mov ds,bx
     mov es,bx
     mov fs,bx
@@ -141,8 +142,8 @@ forkret_s:
     mov ss,bx 
 
     popa 
-    add esp,8
+    add esp,8     ;清理压栈的错误代码和ISR
     iret
 
-.end
+.end:
 

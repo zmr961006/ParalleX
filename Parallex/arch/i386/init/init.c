@@ -22,6 +22,7 @@
 #include "kio.h"
 #include "device.h"
 #include "string.h"
+#include "syscall.h"
 
 extern multiboot_t * glb_mboot_ptr;
 
@@ -97,6 +98,7 @@ int out_of_page(){
 
 uint32 flag = 0;
 int thread(void *arg){
+    arg = NULL;
     while(1){
         if(flag == 1){
             printk("B");
@@ -106,40 +108,28 @@ int thread(void *arg){
 
 
 }
-int thread2(void *arg){
+int thread2( void *arg){
+    arg = NULL;
     while(1){
         
             printk("C");
-       
-       
+ 
     }
 
 
 }
-uint32 thread_user(){
+int thread_user(){
     while(1){  
-        if(flag == 0){
-            printk("A");
-            flag = 1;
-        }
+        
+            printk("BBBBBBBBB\n");
+        
+        
     }
+    return 0;
 }
 
-int kern_init(){
-    //printk("start!\n");
-    gdt_init();
-    idt_init();
-    pmm_init();
-    vmm_init();
-    slob_init();
-    clock_init();
-    init_sched();
-    //device_init();
-    //__asm__ __volatile__ ("sti");
-    kernel_thread(thread,NULL);
-    kernel_thread(thread2,NULL);
-    __asm__ __volatile__ ("sti");
-    /*uint8 ch = 0;
+uint32 shell(){
+    uint8 ch = 0;
     printk("        ***Welcome to XiYouLinux OS!***\n");
     printk("        ***My name is Parallex***\n");
     printk("        ***thanks to Hurlex***\n");
@@ -158,9 +148,77 @@ int kern_init(){
             printk("\n\n.  ..  /home  /bin  /etc  /libs /user\n");
             memset(order,0,sizeof(order));
         }
-    }*/
+    }
+    return ch;
+}
+
+int test_syscall(){
+
+	    __asm__ __volatile__("int $0x08");
+        __asm__ __volatile__("mov $0,%eax");
+        __asm__ __volatile__("int $0x80");
+        return 0;
+}
+
+int test_AtoB(){
+    //kernel_thread(thread,NULL);
+    //kernel_thread(thread2,NULL);
+    return 0;
+}
+
+
+int user_mode_test_main(void *args){
+
+
+    printk("\nI am the PVuser HA HA\n");
+    while(1){
+        printk("AAAAAAAAA\n");
+    }
+    return 0;
+}
+
+void kthread_test(void){
+
+    //pid_t pid ,pid2;
+    kernel_thread(user_mode_test_main,"PVring0->ring3",0);
+    kernel_thread(thread_user,"user",0);
+    //printk("the pid addr is %x\n",&pid);
+    //printk("pid = %d\n",pid);
+    //glb_init_task = find_task(pid);
+    //set_proc_name(glb_init_task,"user_mode_test");
+    //printk("Ts is %s pid = %d \n\n",current->name,current->pid);
+    return;
+
+}
+
+void show_kernel_stack(){
+
+    printk("------------------------------\n");
+    printk("the kernel_stack = %x\n",kernel_stack);
+    printk("the kernel_satck_top = %x\n",kernel_satck_top);
+    printk("------------------------------\n");
+    return;
+}
+
+int kern_init(){
+    //printk("start!\n");
+    gdt_init();
+    idt_init();
+    pmm_init();
+    vmm_init();
+    slob_init();
+    clock_init();
+    //show_kernel_stack();
+    task_init();
+
+    //device_init();
+     __asm__ __volatile__ ("sti");
+    kthread_test();
+    //__asm__ __volatile__ ("sti");
     thread_user();
-    out_of_page();
     __asm__ __volatile__ ("hlt");
     return 0;
 }
+
+
+

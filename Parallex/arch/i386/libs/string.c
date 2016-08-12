@@ -108,3 +108,20 @@ int strlen(const int8 * src){
     return number;
 
 }
+
+
+char * strncpy(char *dest,const char *src,uint32 len){
+
+    char *dst = dest;
+
+    while(len > 0){
+        while(*src){
+            *dest++ = *src++;
+        }
+        len--;
+    }
+    *dest = '\0';
+    
+    return dst;
+
+}

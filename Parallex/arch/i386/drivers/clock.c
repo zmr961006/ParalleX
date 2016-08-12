@@ -28,15 +28,6 @@
 
 #define  TIMER_16BIT    0x30 
 
-void clock_callback();
-
-void clock_callback(){
-
-    //printk("I am the time\n");
-    schedule();
-
-}
-
 
 void clock_init(void){
     

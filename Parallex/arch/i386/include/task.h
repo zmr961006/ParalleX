@@ -11,7 +11,11 @@
 #include"vmm.h"
 #include"pmm.h"
 #include"types.h"
+#include"syscall.h"
+#include"sync.h"
 
+#define CLONE_VM  0x00000100    /*共享虚拟地址空间*/
+#define CLONE_THREAD   0x00000200   /*线程组*/
 
 //typedef uint32  pid_t ;  /*进程描述符*/
 #define TASK_NAME_MAX  30   /*进程最大的名称描述符*/
@@ -27,14 +31,19 @@ typedef enum task_state{
 
 /*保存上下文*/
 typedef struct context{
+        uint32 eip;         /*代码段执行位置*/
         uint32 esp;         /*指向堆栈中即将执行的地址*/
-        uint32 ebp;         /*保存堆栈中函数或者过程的局部变量*/
-        uint32 ebx;         /*通常作为内存偏移量*/
-        uint32 esi;         /*通常作为内存中复制源地址*/
-        uint32 edi;         /*通常作为内存中目的指针来使用*/ 
-        uint32 eflags;      /*标志寄存器*/
+        uint32 ebx;         /*进程数据段选择子*/
+        uint32 ecx;         /*一般为循环计数器*/
+        uint32 edx;         /*一般为数据段*/
+        uint32 esi;         /*源目标偏移*/
+        uint32 edi;         /*目的目标偏移*/
+        uint32 ebp;         /*内存堆栈指针*/   
 }context;
 
+
+#define MAX_TASK  (4096)
+#define MAX_PID   (MAX_TASK * 2)
 
 /*线程内存地址页目录*/
 struct mm_struct {
@@ -46,33 +55,58 @@ struct mm_struct {
 /*线程控制块PCB*/
 struct task_struct {
 
-        __volatile__ task_state state;       /*进程状态*/
+        task_state state;
+        void *stack;
         pid_t pid;
-
-        char name[TASK_MAX_NAME + 1];        /*任务名称*/
+        char name[TASK_NAME_MAX + 1];
+        uint32 runs_time;
+        volatile uint32 need_resched;
+        struct task_struct *parent;
+        struct mm_struct *mm;
+        struct pt_regs_t *pt_regs;
+        struct context context;
+        uint32 flags;
+        uint32 exit_code;
         
-        uint32 runs_time;                    /*当前任务运行时间*/
-        __volatile__ uint32 need_resched;    /*是否需要重新调度*/        
-        
-        struct task_struct *parents;         /*父进程指针*/
-        
-        void *stack;                         /*线程内核栈地址*/
-        struct mm_struct *mm;                /*进程内存地址的页目录*/
-        struct pt_regs_t *pt_regs;           /*任务中断保存的信息*/
-        struct context context;              /*进程切换需要上下文信息*/
-        
-        uint32 flags;                        /*任务的一些标识*/
-        pgd_t *pgdir;                        /*进程自己页表的虚拟地址，加载是转换为物理地址*/
-        uint32 * vaddr;                      /*用户自己的进程虚拟地址*/
-        struct task_struct *next;            /*链表指针*/
-
+        struct list_head list;
 };
+
+extern  struct list_head task_list;
+
+#define le_to_task(le)   list_entry(le,struct task_struct,list)
+
+/*idle 任务指针*/
+extern struct task_struct *glb_idle_task;
+
+/*init 任务指针*/
+extern struct task_struct *glb_init_task;
+
+#define task_to_stack(task) ((void *)((uint32)task + STACK_SIZE - 8))
+
+#define current  get_current()
+
+/*获取当前任务*/
+struct task_struct *get_current(void);
+
+void task_init(void);
+
+void task_run(struct task_struct *task);
+
+int kernel_thread(int (*func)(void *),void *args,uint32 clone_flags);
+
+struct task_struct *find_task(pid_t pid);
+
+void set_proc_name(struct task_struct *task,char *name);
+
+void cpu_idle(void);
+
+pid_t do_fork(uint32 clone_flags,struct pt_regs_t *pt_regs);
+
+void do_exit(int errno);
+
 
 /*全局的PID 变量*/
 extern pid_t new_pid;
-
-/*内核线程的创建*/
-int32 kernel_thread(int (*fn)(void*),void *arg);
 
 /*线程退出函数*/
 void kthread_exit();

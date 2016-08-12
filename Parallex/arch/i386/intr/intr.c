@@ -113,7 +113,7 @@ void isr_handler(pt_regs_t *regs){
         printk("unable interrupt %d %s\n",regs->int_no,intrname(regs->int_no));
         cpu_hlt();
     }
-
+    return ;
 }
 
 void register_interrupt_handler(uint8 n,interrupt_handler_t h){
